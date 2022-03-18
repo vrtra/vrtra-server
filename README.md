@@ -20,3 +20,5 @@ Please search the [discussions tab](https://github.com/LandSandBoat/server/discu
 
 ## LICENSE
 LandSandBoat is licensed under [GNU GPL v3](https://github.com/LandSandBoat/server/blob/base/LICENSE)
+
+%
