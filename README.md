@@ -16,7 +16,7 @@ Please search the [issues tab](https://github.com/LandSandBoat/server/issues) an
 
 ### Balance discussion, technical discussion, meta discussions etc.
 For topics with less direction than issues, a discussion is probably a better fit.
-Please search the [discussions tab](https://github.com/LandSandBoat/server/discussions) and see if your topic has already been discussed, or create a new one.
+Please search the [discussions tab](https://github.com/LandSandBoat/server/discussions) and see if your topic has already been discussed, or create a new one
 
 ## LICENSE
 LandSandBoat is licensed under [GNU GPL v3](https://github.com/LandSandBoat/server/blob/base/LICENSE)
