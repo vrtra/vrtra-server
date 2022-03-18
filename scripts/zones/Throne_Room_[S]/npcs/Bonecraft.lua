@@ -1,0 +1,27 @@
+-----------------------------------
+--  Area: Throne Room [S]
+--  NPC:  Bonecraft Shop
+--  Type: Vendor
+-----------------------------------
+local ID = require("scripts/zones/Throne_Room_[S]/IDs")
+require("scripts/globals/vrtraCraft")
+require("scripts/settings/main")
+
+local entity = {}
+
+entity.onTrigger = function(player,npc)
+    xi.vrtraCraft.craftShop(player,npc)
+    player:PrintToPlayer(string.format("   I am also Vrtra's Custom Bonecraft Quest NPC..."), 21)
+    player:PrintToPlayer(string.format("   Obtain Boneworking level 100 and Way of the Boneworker Key Item. Trade me a Glacier Crystal, and I will give you a torque!"), 21)
+
+end
+
+entity.onTrade = function(player, npc, trade)
+    if trade:hasItemQty(4239,1) and player:hasKeyItem(xi.ki.WAY_OF_THE_BONEWORKER) then   
+        player:tradeComplete()
+        player:addItem(10953,1)
+	    player:messageSpecial(ID.text.ITEM_OBTAINED,10953)
+	end 
+end
+
+return entity
