@@ -13,8 +13,8 @@
 -- 1.125      1.125      1.125        old
 -----------------------------------
 require("scripts/globals/aftermath")
-require("scripts/settings/main")
 require("scripts/globals/status")
+require("scripts/settings/main")
 require("scripts/globals/weaponskills")
 -----------------------------------
 local weaponskill_object = {}
@@ -33,22 +33,30 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
     -- accuracy mods (ONLY USE FOR accURACY VARIES WITH TP) , should be the acc at those %s NOT the penalty values. Leave 0 if acc doesnt vary with tp.
     params.acc100 = 0.0 params.acc200 = 0.0 params.acc300 = 0.0
     -- attack multiplier (only some WSes use this, this varies the actual ratio value, see Tachi: Kasha) 1 is default.
-    params.atk100 = 1; params.atk200 = 1; params.atk300 = 1
+    params.atk100 = 1; params.atk200 = 1; params.atk300 = 1;
 
     if xi.settings.USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.ftp100 = 4.0 params.ftp200 = 4.0 params.ftp300 = 4.0
     end
 
-    -- Apply aftermath
-    xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
-
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-    if damage > 0 then
+    local wsPoints = player:getVar("DEATH_BLOSSOM")
+    if damage > 0 and player:getEquipID(xi.slot.MAIN) == 18995 and wsPoints < 250 then
         local duration = tp / 1000 * 20 - 5
         if not target:hasStatusEffect(xi.effect.MAGIC_EVASION_DOWN) then
             target:addStatusEffect(xi.effect.MAGIC_EVASION_DOWN, 10, 0, duration)
         end
+
+        -- Apply aftermath
+		player:setVar("DEATH_BLOSSOM", wsPoints + 1)
+		player:PrintToPlayer(string.format("You now have %u weapon skill points.", wsPoints + 1), 8)
+       xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
     end
+    if wsPoints == 249 then 
+	    player:setVar("DEATH_BLOSSOM_COMPLETE", 1) 
+		player:PrintToPlayer("You have completed your weapon skill trials.", 21)
+		
+	end 
 
     return tpHits, extraHits, criticalHit, damage
 end

@@ -25,25 +25,33 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
     params.ftp100 = 1.75 params.ftp200 = 1.75 params.ftp300 = 1.75
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.3
     params.mnd_wsc = 0.0 params.chr_wsc = 0.0
-    params.ele = xi.magic.ele.DARK
-    params.skill = xi.skill.STAFF
+    params.ele =xi.magic.ele.DARK
+    params.skill =xi.skill.STAFF
     params.includemab = true
 
     if xi.settings.USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.int_wsc = 0.8
     end
 
-    -- Apply aftermath
-    xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
-
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
 
-    if damage > 0 then
+ 	local wsPoints = player:getVar("VIDOHUNIR")	
+    if damage > 0 and player:getEquipID(xislot.MAIN) == 18994 and wsPoints < 250 then
         local duration = tp / 1000 * 60
         if not target:hasStatusEffect(xi.effect.MAGIC_DEF_DOWN) then
             target:addStatusEffect(xi.effect.MAGIC_DEF_DOWN, 10, 0, duration)
         end
+
+        -- Apply aftermath
+		player:setVar("VIDOHUNIR", wsPoints + 1)
+		player:PrintToPlayer(string.format("You now have %u weapon skill points.", wsPoints + 1), 8)
+       xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
     end
+    if wsPoints == 249 then 
+	    player:setVar("VIDOHUNIR_COMPLETE", 1) 
+		player:PrintToPlayer("You have completed your weapon skill trials.", 21)
+		
+	end 
 
     return tpHits, extraHits, criticalHit, damage
 end
