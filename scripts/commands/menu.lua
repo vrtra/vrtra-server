@@ -2,7 +2,7 @@ require ("scripts/globals/msg")
 local ID = require("scripts/zones/Throne_Room_[S]/IDs")
 cmdprops =
 {
-    permission = 1,
+    permission = 0,
     parameters = "s"
 }
 function onTrigger(player, msg, result)
@@ -11,10 +11,8 @@ function onTrigger(player, msg, result)
   local menuName = "Reset_Your_Hunts?"
   local op1 = "Yes."
   local op2 = "No."
---  local nPage = ">>>"
---  local op3 = "3"
--- local op4 = "4"
-  player:PrintToPlayer(""..menuName.." "..op1.." "..op2.."", dsp.msg.channel.GM_PROMPT)
+
+  player:PrintToPlayer(""..menuName.." "..op1.." "..op2.."", xi.msg.channel.GM_PROMPT)
   if op1 and weekPoints > 4 and complete == 1 then  
       player:PrintToPlayer("Hunts_reset")
 	  player:setVar("HuntWeek_Active", 0)
@@ -44,7 +42,7 @@ function onTrigger(player, msg, result)
   local menuName = "Teleport_to_WG?"
   local op1 = "Yes."
   local op2 = "No."
-  player:PrintToPlayer(""..menuName.." "..op1.." "..op2.."", dsp.msg.channel.GM_PROMPT)
+  player:PrintToPlayer(""..menuName.." "..op1.." "..op2.."", xi.msg.channel.GM_PROMPT)
     if op1 then 
        player:setVar("TELEPORT",1)
 	   player:PrintToPlayer(string.format("Nexus Quest: Speak to the Conflux to teleport."), 21);

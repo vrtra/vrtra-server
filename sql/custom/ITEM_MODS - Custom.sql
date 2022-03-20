@@ -318,6 +318,8 @@ INSERT INTO item_mods VALUES (18501,840,5); -- WS Dmg +5%
 -- Mercenary Major Charm
 INSERT INTO item_mods VALUES (11588,369,1); -- Refresh +1
 -- Fourth Division Mantle
+delete from item_mods where itemid = 11545;
 INSERT INTO item_mods VALUES (11545,368,10); -- Regain +10
+INSERT INTO item_mods VALUES (11545,73,2); -- stp +2
 -- Royal Knight Sigil Ring
 INSERT INTO item_mods VALUES (11636,370,1); -- Regen +1

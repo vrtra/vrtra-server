@@ -114,3 +114,5 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
 
     return calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.criticalHit, damage
 end
+
+return weaponskill_object

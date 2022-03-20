@@ -42,3 +42,4 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
        xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)	
 	end 
 end
+return weaponskill_object
