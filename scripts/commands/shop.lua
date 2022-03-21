@@ -50,7 +50,7 @@ function onTrigger(player,page)
             0x1528,100, --Steel Bullet Pouch
 			5819,100,
         };
-         dsp.shop.general(player, stock_1);
+         xi.shop.general(player, stock_1);
         player:PrintToPlayer("   All the ranged ammunition you'll ever need!", 21);
 
     elseif (page == 2) then
@@ -68,7 +68,7 @@ function onTrigger(player,page)
             5932,   5000, -- kitron juice
 
         };
-         dsp.shop.general(player, stock_2);
+         xi.shop.general(player, stock_2);
         player:PrintToPlayer("   Basic food for basic needs!", 21);
 
     elseif (page == 3) then
@@ -87,7 +87,7 @@ function onTrigger(player,page)
 			4154,   100
 
         };
-         dsp.shop.general(player, stock_3);
+         xi.shop.general(player, stock_3);
         player:PrintToPlayer("   Whatever your illness, we've got the cure!", 21);
 
     elseif (page == 4) then
@@ -104,7 +104,7 @@ function onTrigger(player,page)
             15533,  100000, -- chocobo whistle 
 
         };
-         dsp.shop.general(player, stock_4);
+         xi.shop.general(player, stock_4);
         player:PrintToPlayer("   EXP boosting rings, starter gear, and more!", 21);
 
     elseif (page == 5) then
@@ -124,7 +124,7 @@ function onTrigger(player,page)
 		5319, 100, -- Toolbag Shinobi-Tabi
 		1194, 100, --Shinobi-Tabi
         };
-        dsp.shop.general(player, stock_5);
+        xi.shop.general(player, stock_5);
         player:PrintToPlayer("   All the ninja Tools you need for your adventures!", 21);
 
     elseif (page == 6) then
@@ -155,7 +155,7 @@ function onTrigger(player,page)
             5477,   100,    -- Warrior Die
             5479,   100     -- White Mage Die
         };
-        dsp.shop.general(player, stock_6);
+        xi.shop.general(player, stock_6);
         player:PrintToPlayer("   Your one stop shop for Corsair dice!", 21);
 
     elseif (page == 7) then
@@ -186,7 +186,7 @@ function onTrigger(player,page)
             4252,   100,    -- Summer Fan
             4168,   100     -- Twinkle Shower
         };
-        dsp.shop.general(player, stock_7);
+        xi.shop.general(player, stock_7);
         player:PrintToPlayer("   Browse my list of explosive Fireworks, but be careful to not blow your hands off!", 21);
 
     elseif (page == 8) then
@@ -228,7 +228,7 @@ function onTrigger(player,page)
 	  
         };
 
-        dsp.shop.general(player, stock_8);
+        xi.shop.general(player, stock_8);
         player:PrintToPlayer("   Jug pets and pet food for all you Beastmaster connoisseurs!", 21);
     elseif (page == 9) and player:getVar("empy_augment") == 1 
 	or player:getVar("mythic_augment") == 1 
@@ -253,7 +253,7 @@ function onTrigger(player,page)
 	   8939,5000, -- BRD AUGMENTS	
         };
 
-        dsp.shop.general(player, stock_9);
+        xi.shop.general(player, stock_9);
         player:PrintToPlayer("   Stones for Augmenting. The augment stats correlate to the following stones:", 21);
 		player:PrintToPlayer("   Leafslit Stone - Idle augments (applicable for all jobs)", 21);
 		player:PrintToPlayer("   Leaftip Stone - Offensive Mage augments", 21);

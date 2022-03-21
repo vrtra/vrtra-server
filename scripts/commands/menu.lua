@@ -2,7 +2,7 @@ require ("scripts/globals/msg")
 local ID = require("scripts/zones/Throne_Room_[S]/IDs")
 cmdprops =
 {
-    permission = 0,
+    permission = 1,
     parameters = "s"
 }
 function onTrigger(player, msg, result)
@@ -14,16 +14,14 @@ function onTrigger(player, msg, result)
 
   player:PrintToPlayer(""..menuName.." "..op1.." "..op2.."", xi.msg.channel.GM_PROMPT)
   if op1 and weekPoints > 4 and complete == 1 then  
-      player:PrintToPlayer("Hunts_reset")
 	  player:setVar("HuntWeek_Active", 0)
 	  player:setVar("Hunt_Week",0)
 	  player:setVar("HuntWeek_Target",0)
 	  player:setVar("Hunt_WeekPoints",(weekPoints - 5))
-	  player:messageSpecial(ID.text.HUNT_RESET, 5736)
+	  player:PrintToPlayer(string.format("Weekly Hunt Reset"), 21);
    end
    if op2 and weekPoints > 500 then 
-      player:addItem(13566,1) 
-	  player:messageSpecial(ID.text.ITEM_OBTAINED, 13566)
+
    end
 
 end
