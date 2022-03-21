@@ -18,7 +18,7 @@ function onTrigger(player)
         player:PrintToPlayer( string.format( "You've been bad." ) );
      
     else
-        player:setPos(73, -4, 0, 130, 156);
+        player:setPos(88.1, -5.75, 0, 130, 156);
         player:PrintToPlayer( string.format("Welcome to Vrtra!"));
     end
 
