@@ -18,13 +18,6 @@ local prizes =
             2955, -- Kindred's Crest
             2956, -- High Kindred's Crest
             2957, -- Sacred Kindred's Crest
-			6465, -- food
-			6225, 
-			6469,
-			4146,
-			6064,
-			5735,
-			5736,
 
         },
     },
