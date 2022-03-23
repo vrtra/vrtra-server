@@ -332,37 +332,7 @@ end
 xi.player.onPlayerDeath = function(player)
 end
 
-jobTable =
-	{          
-	[1] = "WAR", 
-	[2] = "MNK",
-	[3] = "WHM",
-	[4] = "BLM",
-	[5] = "RDM",
-	[6] = "THF",
-	[7] = "PLD",
-	[8] = "DRK",
-	[9] = "BST",
-	[10] = "BRD",
-	[11] = "RNG",
-	[12] = "SAM",
-	[13] = "NIN",
-	[14] = "DRG",
-	[15] = "SMN",
-	[16] = "BLU",
-	[17] = "COR",
-	[18] = "PUP",
-	[19] = "DNC",
-	[20] = "SCH",	
-};
-
-
 function onPlayerLevelUp(player)
-   local job  = jobTable[player:getMainJob()]
-  
-  if player:getMainLvl() > 79 then
-   player:PrintToArea(string.format("Congratulations %s on reaching level 80 "..job.."!", player:getName()), 21);
-   end
 end
 
 xi.player.onPlayerLevelDown = function(player)

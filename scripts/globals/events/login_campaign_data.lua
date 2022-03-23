@@ -31,14 +31,6 @@ local prizes =
             20666, -- Blizzard Brand
             25658, -- Wyrm. Masque +1
             25757, -- Wyrmking Suit +1
-        },
-    },
-
-    [9] =
-    {
-        ["price"] = 100,
-        ["items"] =
-        {
             27325, -- track pants
 			25713, -- track shirt 
 			25737, -- apururu unity shirt
@@ -47,7 +39,7 @@ local prizes =
         },
     },
 
-    [13] =
+    [9] =
     {
         ["price"] = 300,
         ["items"] =
@@ -60,7 +52,7 @@ local prizes =
         },
     },
 
-    [17] =
+    [13] =
     {
         ["price"] = 500,
         ["items"] =
@@ -70,10 +62,9 @@ local prizes =
 			10076, -- ♪golden_bomb
 			10070, -- ♪raaz
         },
-
     },
 
-    [21] =
+    [17] =
     {
         ["price"] = 750,
         ["items"] =
@@ -81,11 +72,11 @@ local prizes =
             3339, -- Honey Wine
             3341, -- Beastly Shank
             3343, -- Blue Pondweed
-
         },
+
     },
 
-    [25] =
+    [21] =
     {
         ["price"] = 1500,
         ["items"] =
@@ -93,10 +84,11 @@ local prizes =
             3340, -- Sweet Tea
             3342, -- Savory Shank
             3344, -- Red Pondweed
+
         },
     },
 
-    [29] =
+    [25] =
     {
         ["price"] = 2500,
         ["items"] =
@@ -104,7 +96,15 @@ local prizes =
             10080, -- ♪byakko
 			10079, -- ♪iron_giant
 			10077, -- ♪buffalo
+        },
+    },
 
+    [29] =
+    {
+        ["price"] = 50000,
+        ["items"] =
+        {
+           17440, -- kclub
         },
     },
 }
