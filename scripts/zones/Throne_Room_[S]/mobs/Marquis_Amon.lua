@@ -23,7 +23,7 @@ end
 
 -- Return the selected spell ID.
 function onMonsterMagicPrepare(mob, target)
-    if (mob:hasStatusEffect(dsp.effect.CHAINSPELL) == true) then
+    if (mob:hasStatusEffect(xi.effect.CHAINSPELL) == true) then
         local rndSpell = math.random(1,4);
 
 		switch (rndSpell) : caseof
@@ -43,8 +43,8 @@ end;
 -----------------------------------
 
 function onMobInitialize(mob)
-	mob:addMod(dsp.mod.SLEEPRES, 100)
-	mob:addMod(dsp.mod.SILENCERES, 100)
+	mob:addMod(xi.mod.SLEEPRES, 100)
+	mob:addMod(xi.mod.SILENCERES, 100)
 end
 
 -----------------------------------

@@ -14,10 +14,10 @@ cmdprops =
 
 function onTrigger(player)
    
-	player:addKeyItem(dsp.ki.WHITE_CARD)
-	player:addKeyItem(dsp.ki.COSMOCLEANSE)
-	player:messageSpecial(ID.text.KEYITEM_OBTAINED, dsp.ki.COSMOCLEANSE)
-	player:messageSpecial(ID.text.KEYITEM_OBTAINED, dsp.ki.WHITE_CARD)
+	player:addKeyItem(xi.ki.WHITE_CARD)
+	player:addKeyItem(xi.ki.COSMOCLEANSE)
+	player:messageSpecial(ID.text.KEYITEM_OBTAINED, xi.ki.COSMOCLEANSE)
+	player:messageSpecial(ID.text.KEYITEM_OBTAINED, xi.ki.WHITE_CARD)
 	player:setPos(580, -3, 100, 190, 37)
     player:PrintToPlayer(string.format("Teleporting to the Temenos limbus entrance."))
 

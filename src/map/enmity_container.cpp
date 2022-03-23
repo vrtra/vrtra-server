@@ -35,6 +35,47 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "utils/zoneutils.h"
 
 /************************************************************************
+*                                                                       *
+*        // VRTRA_CUSTOM ENMITY                                                               *
+*                                                                       *
+************************************************************************/
+void CEnmityContainer::UpdateEnmityFromDamage(CBattleEntity* PEntity, int32 Damage)
+{
+    Damage = (Damage < 1 ? 1 : Damage);
+    uint16 mod = battleutils::GetEnmityModDamage(PEntity->GetMLevel()); //default fallback
+    uint16 pLevel = PEntity->GetMLevel();
+    float sFactor = 0.0f;
+
+    if (pLevel > 70)
+    {
+        sFactor = 0.3f;
+    }
+    else if (pLevel < 71 && pLevel > 60)
+    {
+        sFactor = 0.6f;
+    }
+    else if (pLevel < 61 && pLevel > 50)
+    {
+        sFactor = 0.8f;
+    }
+    else
+    {
+        sFactor = 1.0f;
+    }
+
+    if (m_EnmityHolder != nullptr) {//use the correct mod value
+        mod = battleutils::GetEnmityModDamage(m_EnmityHolder->GetMLevel());
+    }
+
+    auto CE = (int16)(((80.0f / mod) * Damage) * sFactor);
+    auto VE = (int16)(((240.0f / mod) * Damage) * sFactor);
+
+    UpdateEnmity(PEntity, CE, VE);
+
+    if (m_EnmityHolder && m_EnmityHolder->m_HiPCLvl < PEntity->GetMLevel())
+        m_EnmityHolder->m_HiPCLvl = PEntity->GetMLevel();
+}
+/************************************************************************
  *                                                                       *
  *                                                                       *
  *                                                                       *
@@ -343,29 +384,6 @@ void CEnmityContainer::SetVE(CBattleEntity* PEntity, const int32 amount)
     {
         AddBaseEnmity(PEntity);
         SetVE(PEntity, amount);
-    }
-}
-
-/************************************************************************
- *                                                                       *
- *                                                                       *
- *                                                                       *
- ************************************************************************/
-
-void CEnmityContainer::UpdateEnmityFromDamage(CBattleEntity* PEntity, int32 Damage)
-{
-    TracyZoneScoped;
-    Damage          = (Damage < 1 ? 1 : Damage);
-    int16 damageMod = battleutils::GetEnmityModDamage(m_EnmityHolder->GetMLevel());
-
-    int32 CE = (int32)(80.f / damageMod * Damage);
-    int32 VE = (int32)(240.f / damageMod * Damage);
-
-    UpdateEnmity(PEntity, CE, VE);
-
-    if (m_EnmityHolder && m_EnmityHolder->m_HiPCLvl < PEntity->GetMLevel())
-    {
-        m_EnmityHolder->m_HiPCLvl = PEntity->GetMLevel();
     }
 }
 

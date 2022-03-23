@@ -13,23 +13,19 @@ cmdprops =
     parameters = "s"
 }
 
-function onTrigger(player, job)
+function onTrigger(targ, job)
 
-            if  player:getFreeSlotsCount() > 0 and player:hasItem(17859) == false then
-                player:delQuest(AHT_URHGAN, NO_STRINGS_ATTACHED)
-                player:setVar("NoStringsAttachedProgress",0)
-                player:addQuest(AHT_URHGAN,xi.quest.id.ahtUrhgan.NO_STRINGS_ATTACHED)
-                player:addTitle(xi.title.PROUD_AUTOMATON_OWNER)
-                player:completeQuest(AHT_URHGAN,xi.quest.id.ahtUrhgan.NO_STRINGS_ATTACHED)
-                player:unlockJob(xi.job.PUP)
-                player:addItem(17859)
-                player:setPetName(xi.pet.type.AUTOMATON, 118) -- default name
-                player:unlockAttachment(8193) -- Harlequin Head
-                player:unlockAttachment(8224) -- Harlequin Frame
-                player:PrintToPlayer("Item obtained: animator ")
-                player:PrintToPlayer("You can now become a puppetmaster. ")
+            if  targ:getFreeSlotsCount() > 0 and targ:hasItem(17859) == false then
+                targ:setCharVar("NoStringsAttachedProgress",0)
+                targ:addTitle(xi.title.PROUD_AUTOMATON_OWNER)
+                targ:completeQuest(xi.quest.log_id.AHT_URHGAN, xi.quest.id.ahtUrhgan.NO_STRINGS_ATTACHED)
+                targ:addItem(17859)
+                targ:unlockJob(xi.job.PUP)
+                targ:PrintToPlayer("You can now become a PUP")
+                targ:unlockAttachment(xi.items.HARLEQUIN_FRAME)
+                targ:unlockAttachment(xi.items.HARLEQUIN_HEAD)
             else
-                player:PrintToPlayer("Item could not be obtained: animator ")
+                targ:PrintToPlayer("Item could not be obtained: animator ")
             end
 
 end
