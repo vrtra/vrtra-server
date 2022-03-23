@@ -10,5 +10,5 @@ cmdprops =
 }
 
 function onTrigger(player)
-    player:messagePublic(29, "Hello")
+    player:PrintToArea(string.format("Congratulations %s on reaching level 80!", player:getName()), 21);
 end
