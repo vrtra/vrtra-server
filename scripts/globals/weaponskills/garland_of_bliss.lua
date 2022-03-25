@@ -25,8 +25,8 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
     params.ftp100 = 2 params.ftp200 = 2 params.ftp300 = 2
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0
     params.mnd_wsc = 0.4 params.chr_wsc = 0.0
-    params.ele =xi.magic.ele.LIGHT
-    params.skill =xi.skill.STAFF
+    params.ele = xi.magic.ele.LIGHT
+    params.skill = xi.skill.STAFF
     params.includemab = true
 
     if xi.settings.USE_ADOULIN_WEAPON_SKILL_CHANGES then
@@ -34,24 +34,17 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
         params.str_wsc = 0.3 params.mnd_wsc = 0.7
     end
 
+    -- Apply Aftermath
+    xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
+
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
-	local wsPoints = player:getVar("GARLAND_OF_BLISS")
-    if damage > 0 and player:getEquipID(xislot.MAIN) == 19005 and wsPoints < 250 then
+    if damage > 0 then
         if not target:hasStatusEffect(xi.effect.DEFENSE_DOWN) then
-            local duration = (30 + tp / 1000 * 30) * applyResistanceAddEffect(player, target,xi.magic.ele.WIND, 0)
+            local duration = (30 + tp / 1000 * 30) * applyResistanceAddEffect(player, target, xi.magic.ele.WIND, 0)
             target:addStatusEffect(xi.effect.DEFENSE_DOWN, 12.5, 0, duration)
         end
-
-        -- Apply Aftermath
-       xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
-		player:setVar("GARLAND_OF_BLISS", wsPoints + 1)
-		player:PrintToPlayer(string.format("You now have %u weapon skill points.", wsPoints + 1), 8)
     end
-    if wsPoints == 249 then 
-	    player:setVar("GARLAND_OF_BLISS_COMPLETE", 1) 
-		player:PrintToPlayer("You have completed your weapon skill trials.", 21)
-		
-	end 
+
     return tpHits, extraHits, criticalHit, damage
 end
 
