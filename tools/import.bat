@@ -28,7 +28,7 @@ set min=%TIME:~3,2%
 set importtime=%month%-%day%-%year%-%hour%-%min%
 echo %importtime%
 
-REM may need to change the path to mysql and mysqladmin
+REM may need to change the path to mysql and mysqladmin!
 
 set mysql="C:\Program Files\MySQL\MySQL Server 5.7\bin\mysql.exe"
 set mysqladmin="C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqladmin.exe"
