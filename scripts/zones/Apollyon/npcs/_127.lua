@@ -13,7 +13,7 @@ entity.onTrade = function(player, npc, trade)
         player:hasKeyItem(xi.ki.COSMO_CLEANSE) and
         player:hasKeyItem(xi.ki.RED_CARD)
     then
-        player:setCharVar("ApollyonEntrance", 0)
+        player:setCharVar("ApollyonEntrance", 1)
         TradeBCNM(player, npc, trade)
     else
         player:messageSpecial(ID.text.NO_KEY)
@@ -25,7 +25,7 @@ entity.onTrigger = function(player, npc)
         player:hasKeyItem(xi.ki.COSMO_CLEANSE) and
         player:hasKeyItem(xi.ki.RED_CARD)
     then
-        player:setCharVar("ApollyonEntrance", 0)
+        player:setCharVar("ApollyonEntrance", 1)
         EventTriggerBCNM(player, npc)
     else
         player:messageSpecial(ID.text.NO_KEY)
