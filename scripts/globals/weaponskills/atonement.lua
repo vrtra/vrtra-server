@@ -30,24 +30,21 @@ local weaponskill_object = {}
 weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary, action, taChar)
     local params = {}
     params.numHits = 2
-    params.ftp100 = 1 params.ftp200 = 1.25 params.ftp300 = 1.5
+    params.ftp100 = 3 params.ftp200 = 3 params.ftp300 = 3
     params.str_wsc = 0.4 params.dex_wsc = 0.0 params.vit_wsc = 0.5 params.agi_wsc = 0.0 params.int_wsc = 0.0
     params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
     params.acc100 = 0.0 params.acc200 = 0.0 params.acc300 = 0.0
-    params.atk100 = 1 params.atk200 = 1 params.atk300 = 1
+    params.atk100 = 1.2 params.atk200 = 1.2 params.atk300 = 1.2
     params.enmityMult = 1
-
-    -- Apply aftermath
-    xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
 
     local attack =
     {
-        ['type'] = xi.attackType.BREATH,
-        ['slot'] = xi.slot.MAIN,
-        ['weaponType'] = player:getWeaponSkillType(xi.slot.MAIN),
-        ['damageType'] = xi.damageType.ELEMENTAL
+        ['type'] =xi.attackType.BREATH,
+        ['slot'] =xi.slot.MAIN,
+        ['weaponType'] = player:getWeaponSkillType(xislot.MAIN),
+        ['damageType'] =xi.damageType.ELEMENTAL
     }
     local calcParams =
     {
@@ -60,7 +57,7 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
 
     local damage = 0
 
-    if target:getObjType() ~= xi.objType.MOB then -- this isn't correct but might as well use what was originally here if someone uses this on a non-mob
+    if target:getObjType() ~=xi.objType.MOB then -- this isn't correct but might as well use what was originally here if someone uses this on a non-mob
         if xi.settings.USE_ADOULIN_WEAPON_SKILL_CHANGES then
             params.ftp100 = 1 params.ftp200 = 1.5 params.ftp300 = 2.0
         end
@@ -83,10 +80,10 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
 
         dmg = utils.clamp(dmg, 0, player:getMainLvl() * 10) -- Damage is capped to player's level * 10, before WS damage mods
         damage = target:breathDmgTaken(dmg)
-        if player:getMod(xi.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 then
-            damage = damage * (100 + player:getMod(xi.mod.WEAPONSKILL_DAMAGE_BASE + wsID)) / 100
+        if player:getMod(ximod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 then
+            damage = damage * (100 + player:getMod(ximod.WEAPONSKILL_DAMAGE_BASE + wsID)) / 100
         end
-        damage = damage * xi.settings.WEAPON_SKILL_POWER
+        damage = damage * WEAPON_SKILL_POWER
         calcParams.finalDmg = damage
 
         if damage > 0 then
@@ -96,11 +93,24 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
                 calcParams.tpHitsLanded = 1
             end
             -- Atonement always yields the a TP return of a 2 hit WS (unless it does 0 damage), because if one hit lands, both hits do.
-            calcParams.extraHitsLanded = 1
+            calcParams.extraHitsLanded = 1 
         end
 
         damage = takeWeaponskillDamage(target, player, params, primary, attack, calcParams, action)
     end
+
+    -- Apply aftermath/ws points
+	local wsPoints = player:getVar("ATONEMENT")
+    if damage > 0 and player:getEquipID(xislot.MAIN) == 18997 and wsPoints < 250 then
+       xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
+		player:setVar("ATONEMENT", wsPoints + 1)
+		player:PrintToPlayer(string.format("You now have %u weapon skill points.", wsPoints + 1), 8)
+	end
+    if wsPoints == 249 then 
+	    player:setVar("ATONEMENT_COMPLETE", 1) 
+		player:PrintToPlayer("You have completed your weapon skill trials.", 21)
+		
+	end 
 
     return calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.criticalHit, damage
 end

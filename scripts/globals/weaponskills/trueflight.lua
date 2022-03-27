@@ -25,12 +25,12 @@ local weaponskill_object = {}
 
 weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary, action, taChar)
     local params = {}
-    params.ftp100 = 4 params.ftp200 = 4.25 params.ftp300 = 4.75
+    params.ftp100 = 6 params.ftp200 = 6 params.ftp300 = 6
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0
-    params.agi_wsc = 0.3 params.int_wsc = 0.0 params.mnd_wsc = 0.0
+    params.agi_wsc = 0.8 params.int_wsc = 0.6 params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    params.ele = xi.magic.ele.LIGHT
-    params.skill = xi.skill.MARKSMANSHIP
+    params.ele =xi.magic.ele.LIGHT
+    params.skill =xi.skill.MARKSMANSHIP
     params.includemab = true
 
     if xi.settings.USE_ADOULIN_WEAPON_SKILL_CHANGES then
@@ -38,12 +38,17 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
         params.agi_wsc = 1.0
     end
 
-    -- Apply aftermath
-    xi.aftermath.addStatusEffect(player, tp, xi.slot.RANGED, xi.aftermath.type.MYTHIC)
-
     local damage, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
 
-    return tpHits, extraHits, false, damage
+    -- Apply aftermath
+
+    if damage > 0 then
+       xi.aftermath.addStatusEffect(player, tp,xi.slot.RANGED,xi.aftermath.type.MYTHIC)
+
+	end
+
+
+    return tpHits, extraHits, criticalHit, damage
 end
 
 return weaponskill_object
