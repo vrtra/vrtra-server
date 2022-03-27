@@ -1688,6 +1688,24 @@ namespace luautils
         }
     }
 
+    void OnZoneOut(CCharEntity* PChar)
+    {
+        TracyZoneScoped;
+
+        auto name = (const char*)PChar->loc.zone->GetName();
+
+        auto onZoneOutFramework = lua["xi"]["globals"]["interaction"]["interaction_global"]["onZoneOut"];
+        auto onZoneOut          = lua["xi"]["zones"][name]["Zone"]["onZoneOut"];
+
+        auto result = onZoneOutFramework(CLuaBaseEntity(PChar), onZoneOut);
+        if (!result.valid())
+        {
+            sol::error err = result;
+            ShowError("luautils::onZoneOut: %s", err.what());
+            return;
+        }
+    }
+
     /************************************************************************
      *                                                                       *
      *  Персонаж входит в активный регион                                    *
@@ -3031,11 +3049,6 @@ namespace luautils
         TracyZoneScoped;
 
         if (PMob == nullptr)
-        {
-            return -1;
-        }
-
-        if (PMob->isDynamicEntity)
         {
             return -1;
         }
@@ -4495,6 +4508,26 @@ namespace luautils
         {
             sol::error err = result;
             ShowError("luautils::onPlayerLevelDown: %s", err.what());
+            return;
+        }
+    }
+
+    void OnPlayerMount(CCharEntity* PChar)
+    {
+        TracyZoneScoped;
+
+        auto onPlayerMount = lua["xi"]["player"]["onPlayerMount"];
+        if (!onPlayerMount.valid())
+        {
+            ShowWarning("luautils::onPlayerMount");
+            return;
+        }
+
+        auto result = onPlayerMount(CLuaBaseEntity(PChar));
+        if (!result.valid())
+        {
+            sol::error err = result;
+            ShowError("luautils::onPlayerMount: %s", err.what());
             return;
         }
     }

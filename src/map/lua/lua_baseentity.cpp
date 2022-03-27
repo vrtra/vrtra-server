@@ -289,14 +289,14 @@ void CLuaBaseEntity::messageText(CLuaBaseEntity* PLuaBaseEntity, uint16 messageI
  *          : Can modify the name shown through explicit declaration
  ************************************************************************/
 
-void CLuaBaseEntity::PrintToPlayer(std::string const& message, sol::object messageType, sol::object name)
+void CLuaBaseEntity::PrintToPlayer(std::string const& message, sol::object const& messageTypeObj, sol::object const& nameObj)
 {
-    CHAT_MESSAGE_TYPE int_messageType = (messageType == sol::lua_nil) ? MESSAGE_SYSTEM_1 : messageType.as<CHAT_MESSAGE_TYPE>();
-    const char*       cstr_name       = (name == sol::lua_nil) ? "" : name.as<const char*>();
+    auto messageType = (messageTypeObj == sol::lua_nil) ? MESSAGE_SYSTEM_1 : messageTypeObj.as<CHAT_MESSAGE_TYPE>();
+    auto name        = (nameObj == sol::lua_nil) ? "" : nameObj.as<std::string>();
 
     if (auto* PChar = dynamic_cast<CCharEntity*>(m_PBaseEntity))
     {
-        PChar->pushPacket(new CChatMessagePacket(PChar, int_messageType, message, cstr_name));
+        PChar->pushPacket(new CChatMessagePacket(PChar, messageType, message, name));
     }
 }
 
@@ -4326,10 +4326,50 @@ uint8 CLuaBaseEntity::getGender()
  *  Example : player:getName()
  ************************************************************************/
 
-const char* CLuaBaseEntity::getName()
+std::string CLuaBaseEntity::getName()
 {
-    // TODO: Fix C-style cast
-    return (const char*)m_PBaseEntity->GetName();
+    return m_PBaseEntity->name;
+}
+
+/************************************************************************
+ *  Function: setName()
+ *  Purpose : Sets the name of the entity.
+ *  Example : mob:setName("NewName")
+ *  Note    : This will only apply to entities whose targid's are in a range
+ *          : that will allow their names to be changed: Trusts, Pets,
+ *          : Dynamic Entities etc.
+ ************************************************************************/
+
+void CLuaBaseEntity::setName(std::string const& name)
+{
+    m_PBaseEntity->name = name;
+    m_PBaseEntity->updatemask |= UPDATE_NAME;
+}
+
+/************************************************************************
+ *  Function: getPacketName()
+ *  Purpose : Returns the string packet name of the character
+ *  Example : mob:getPacketName()
+ ************************************************************************/
+
+std::string CLuaBaseEntity::getPacketName()
+{
+    return m_PBaseEntity->packetName;
+}
+
+/************************************************************************
+ *  Function: setPacketName()
+ *  Purpose : Sets the packet name of the entity.
+ *  Example : mob:getPacketName("NewName")
+ *  Note    : This will only apply to entities whose targid's are in a range
+ *          : that will allow their packet names to be changed: Trusts, Pets,
+ *          : Dynamic Entities etc.
+ ************************************************************************/
+
+void CLuaBaseEntity::setPacketName(std::string const& name)
+{
+    m_PBaseEntity->packetName = name;
+    m_PBaseEntity->updatemask |= UPDATE_NAME;
 }
 
 /************************************************************************
@@ -11209,11 +11249,11 @@ void CLuaBaseEntity::spawnPet(sol::object const& arg0)
  *  Example : caster:spawnTrust(spell:getID())
  ************************************************************************/
 
-void CLuaBaseEntity::spawnTrust(uint16 trustId)
+std::optional<CLuaBaseEntity> CLuaBaseEntity::spawnTrust(uint16 trustId)
 {
     XI_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC); // only PCs can spawn trusts
 
-    trustutils::SpawnTrust(static_cast<CCharEntity*>(m_PBaseEntity), trustId);
+    return CLuaBaseEntity(trustutils::SpawnTrust(static_cast<CCharEntity*>(m_PBaseEntity), trustId));
 }
 
 /************************************************************************
@@ -11905,6 +11945,27 @@ void CLuaBaseEntity::reduceBurden(float percentReduction, sol::object const& int
     }
 
     PAutomaton->setBurdenArray(burden);
+}
+
+/************************************************************************
+ *  Function: getAllRuneEffects()
+ *  Purpose : Returns a sol::table with all rune effects
+ *  Example : local runeEffects = player:getAllRuneEffects()
+ *  Notes   :
+ ************************************************************************/
+
+auto CLuaBaseEntity::getAllRuneEffects() -> sol::table
+{
+    auto* PEntity = static_cast<CBattleEntity*>(m_PBaseEntity);
+    std::vector<EFFECT> runeEffectList = PEntity->StatusEffectContainer->GetAllRuneEffects();
+
+    auto table = luautils::lua.create_table();
+
+    for(const auto& runeEffect: runeEffectList)
+    {
+        table.add(runeEffect);
+    }
+    return table;
 }
 
 /************************************************************************
@@ -13174,6 +13235,103 @@ void CLuaBaseEntity::addDropListModification(uint16 id, uint16 newRate, sol::var
 }
 
 /************************************************************************
+ *  Function: getAvailableTraverserStones()
+ *  Purpose : Returns the number of Traverser Stones available for claim
+ *  Note: Does not yet account for KI reduction
+ ************************************************************************/
+
+uint32 CLuaBaseEntity::getAvailableTraverserStones()
+{
+    if (m_PBaseEntity->objtype != TYPE_PC)
+    {
+        return 0;
+    }
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return charutils::getAvailableTraverserStones(PChar);
+}
+
+/************************************************************************
+ *  Function: getTraverserEpoch()
+ *  Purpose : Returns the number of Traverser Stones claimed by the player
+ ************************************************************************/
+
+time_t CLuaBaseEntity::getTraverserEpoch()
+{
+    if (m_PBaseEntity->objtype != TYPE_PC)
+    {
+        return 0;
+    }
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return charutils::getTraverserEpoch(PChar);
+}
+
+/************************************************************************
+ *  Function: setTraverserEpoch()
+ *  Purpose : Returns the number of Traverser Stones claimed by the player
+ ************************************************************************/
+
+void CLuaBaseEntity::setTraverserEpoch()
+{
+    if (m_PBaseEntity->objtype != TYPE_PC)
+    {
+        return;
+    }
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    charutils::setTraverserEpoch(PChar);
+}
+
+/************************************************************************
+ *  Function: getClaimedTraverserStones()
+ *  Purpose : Returns the number of Traverser Stones claimed by the player
+ ************************************************************************/
+
+uint32 CLuaBaseEntity::getClaimedTraverserStones()
+{
+    if (m_PBaseEntity->objtype != TYPE_PC)
+    {
+        return 0;
+    }
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    return charutils::getClaimedTraverserStones(PChar);
+}
+
+/************************************************************************
+ *  Function: addClaimedTraverserStones()
+ *  Purpose : Increments number of Traverser Stones claimed by the player
+ ************************************************************************/
+
+void CLuaBaseEntity::addClaimedTraverserStones(uint16 numStones)
+{
+    if (m_PBaseEntity->objtype != TYPE_PC)
+    {
+        return;
+    }
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    charutils::addClaimedTraverserStones(PChar, numStones);
+}
+
+/************************************************************************
+ *  Function: setClaimedTraverserStones()
+ *  Purpose : Sets number of Traverser Stones claimed by the player.
+ ************************************************************************/
+
+void CLuaBaseEntity::setClaimedTraverserStones(uint16 totalStones)
+{
+    if (m_PBaseEntity->objtype != TYPE_PC)
+    {
+        return;
+    }
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+    charutils::setClaimedTraverserStones(PChar, totalStones);
+}
+
+/************************************************************************
  *  Function: getHistory()
  *  Purpose : Gets a single entry of character history statistics
  *  Example : player:getHistory(xi.history.enemiesDefeated) -- Returns the relevant stat
@@ -13435,6 +13593,9 @@ void CLuaBaseEntity::Register()
     SOL_REGISTER("getRace", CLuaBaseEntity::getRace);
     SOL_REGISTER("getGender", CLuaBaseEntity::getGender);
     SOL_REGISTER("getName", CLuaBaseEntity::getName);
+    SOL_REGISTER("setName", CLuaBaseEntity::setName);
+    SOL_REGISTER("getPacketName", CLuaBaseEntity::getPacketName);
+    SOL_REGISTER("setPacketName", CLuaBaseEntity::setPacketName);
     SOL_REGISTER("hideName", CLuaBaseEntity::hideName);
     SOL_REGISTER("checkNameFlags", CLuaBaseEntity::checkNameFlags);
     SOL_REGISTER("getModelId", CLuaBaseEntity::getModelId);
@@ -13869,6 +14030,7 @@ void CLuaBaseEntity::Register()
     SOL_REGISTER("updateAttachments", CLuaBaseEntity::updateAttachments);
     SOL_REGISTER("reduceBurden", CLuaBaseEntity::reduceBurden);
 
+    SOL_REGISTER("getAllRuneEffects",CLuaBaseEntity::getAllRuneEffects);
     SOL_REGISTER("getActiveRuneCount", CLuaBaseEntity::getActiveRuneCount);
     SOL_REGISTER("getHighestRuneEffect", CLuaBaseEntity::getHighestRuneEffect);
     SOL_REGISTER("getNewestRuneEffect", CLuaBaseEntity::getNewestRuneEffect);
@@ -13964,6 +14126,14 @@ void CLuaBaseEntity::Register()
     SOL_REGISTER("getPlayerRegionInZone", CLuaBaseEntity::getPlayerRegionInZone);
     SOL_REGISTER("updateToEntireZone", CLuaBaseEntity::updateToEntireZone);
 
+    // Abyssea
+    SOL_REGISTER("getAvailableTraverserStones", CLuaBaseEntity::getAvailableTraverserStones);
+    SOL_REGISTER("getTraverserEpoch", CLuaBaseEntity::getTraverserEpoch);
+    SOL_REGISTER("setTraverserEpoch", CLuaBaseEntity::setTraverserEpoch);
+    SOL_REGISTER("getClaimedTraverserStones", CLuaBaseEntity::getClaimedTraverserStones);
+    SOL_REGISTER("addClaimedTraverserStones", CLuaBaseEntity::addClaimedTraverserStones);
+    SOL_REGISTER("setClaimedTraverserStones", CLuaBaseEntity::setClaimedTraverserStones);
+
     SOL_REGISTER("getHistory", CLuaBaseEntity::getHistory);
 }
 
@@ -13974,6 +14144,7 @@ std::ostream& operator<<(std::ostream& os, const CLuaBaseEntity& entity)
     {
         std::string id   = std::to_string(entity.m_PBaseEntity->id);
         std::string name = entity.m_PBaseEntity->name;
+        std::string packetName = entity.m_PBaseEntity->packetName;
         std::string type = "";
         switch (entity.m_PBaseEntity->objtype)
         {
@@ -14024,7 +14195,8 @@ std::ostream& operator<<(std::ostream& os, const CLuaBaseEntity& entity)
             }
         }
 
-        return os << "CLuaBaseEntity(" << type << " | " << id << " | " << name << ")";
+        std::string ending = (packetName.empty()) ? ")" : " | " + packetName + ")";
+        return os << "CLuaBaseEntity(" << type << " | " << id << " | " << name << ending;
     }
 
     return os << "CLuaBaseEntity(nullptr)";
