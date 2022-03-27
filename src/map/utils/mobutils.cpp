@@ -856,7 +856,9 @@ namespace mobutils
         // do not roam around
         PMob->m_roamFlags |= ROAMFLAG_EVENT;
         PMob->m_maxRoamDistance = 0.5f;
-        if ((PMob->m_bcnmID != 864) && (PMob->m_bcnmID != 704) && (PMob->m_bcnmID != 706))
+        if ((PMob->m_bcnmID != 864) && (PMob->m_bcnmID != 704) && (PMob->m_bcnmID != 706) && (PMob->m_bcnmID != 1290) && (PMob->m_bcnmID != 1291) && (PMob->m_bcnmID != 1292) && (PMob->m_bcnmID != 1293)
+			 && (PMob->m_bcnmID != 1294) && (PMob->m_bcnmID != 1295) && (PMob->m_bcnmID != 1296) && (PMob->m_bcnmID != 1297) && (PMob->m_bcnmID != 1298) && (PMob->m_bcnmID != 1299) && (PMob->m_bcnmID != 1300)
+			 && (PMob->m_bcnmID != 1301) && (PMob->m_bcnmID != 1302) && (PMob->m_bcnmID != 1303) && (PMob->m_bcnmID != 1304) && (PMob->m_bcnmID != 1305) && (PMob->m_bcnmID != 1306) && (PMob->m_bcnmID != 1307))
         {
             // bcnmID 864 (desires of emptiness), 704 (darkness named), and 706 (waking dreams) don't superlink
             // force all mobs in same instance to superlink
