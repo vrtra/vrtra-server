@@ -2,15 +2,15 @@ require ("scripts/globals/msg")
 local ID = require("scripts/zones/Throne_Room_[S]/IDs")
 cmdprops =
 {
-    permission = 1,
+    permission = 0,
     parameters = "s"
 }
 function onTrigger(player, msg, result)
   local weekPoints = player:getVar("Hunt_WeekPoints")
   local complete = player:getVar("HuntWeek_Active")
-  local menuName = "Reset_Your_Hunts?"
-  local op1 = "Yes."
-  local op2 = "No."
+  local menuName = "Augment Your Kraken Club"
+  local op1 = "DMG+20"
+  local op2 = "ACC+20"
 
   player:PrintToPlayer(""..menuName.." "..op1.." "..op2.."", xi.msg.channel.GM_PROMPT)
   if op1 and weekPoints > 4 and complete == 1 then  

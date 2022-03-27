@@ -1,0 +1,11 @@
+build		    DOCKER.md		libzmq.dll	 sql
+cmake		    docker-compose.yml	libzmq_64.dll	 src
+CMakeLists.txt	    Dockerfile		libzmq-d.dll	 tools
+CMakeSettings.json  documentation	libzmq-d_64.dll  topaz_connect_64.exe
+CODE_OF_CONDUCT.md  ext			LICENSE		 topaz_connect_64.pdb
+compress.dat	    icons		log		 topaz_game_64.exe
+conf		    install.sh		modules		 topaz_game_64.pdb
+CONTRIBUTING.md     libluajit.dll	navmeshes	 topaz_search_64.exe
+decompress.dat	    libluajit_64.dll	README.md	 topaz_search_64.pdb
+deleteme.txt	    libmariadb.dll	res		 update.sh
+dmp		    libmariadb64.dll	scripts
