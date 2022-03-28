@@ -10,12 +10,12 @@ cmdprops =
 };
 
 function onTrigger(player)
-	if (player:hasStatusEffect(dsp.effect.SANCTION)) then
-		player:delStatusEffectSilent(dsp.effect.SANCTION)
-		player:addStatusEffect(dsp.effect.SIGNET,0,0,14400); -- 253 effect id
+	if (player:hasStatusEffect(xi.effect.SANCTION)) then
+		player:delStatusEffectSilent(xi.effect.SANCTION)
+		player:addStatusEffect(xi.effect.SIGNET,0,0,14400); -- 253 effect id
 		player:PrintToPlayer(string.format("You have received the effect of Signet!"), 21);
 	else
-		player:addStatusEffect(dsp.effect.SIGNET,0,0,14400); -- 253 effect id
+		player:addStatusEffect(xi.effect.SIGNET,0,0,14400); -- 253 effect id
 		player:PrintToPlayer(string.format("You have received the effect of Signet!"), 21);
 	end
 end;
