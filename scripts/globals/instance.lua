@@ -142,7 +142,7 @@ xi.instance.lookup =
 
     [xi.zone.ARRAPAGO_REMNANTS] =
     {
-        -- Salvage
+       { 7400, { 408, 8, -6, 0, 99, 18, 0 }, { 116, 1 }, { 411, 8 } },  -- Salvage
     },
 
     [xi.zone.BHAFLAU_REMNANTS] =

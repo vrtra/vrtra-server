@@ -8,9 +8,9 @@ cmdprops =
 function onTrigger(player, msg, result)
   local weekPoints = player:getVar("Hunt_WeekPoints")
   local complete = player:getVar("HuntWeek_Active")
-  local menuName = "Augment Your Kraken Club"
-  local op1 = "DMG+20"
-  local op2 = "ACC+20"
+  local menuName = "Augment_Your_Kraken_Club"
+  local op1 = "Yes."
+  local op2 = "No."
 
   player:PrintToPlayer(""..menuName.." "..op1.." "..op2.."", xi.msg.channel.GM_PROMPT)
   if op1 and weekPoints > 4 and complete == 1 then  
