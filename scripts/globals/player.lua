@@ -122,7 +122,23 @@ local function CharCreate(player)
     if player:getGil() < xi.settings.START_GIL then
        player:setGil(xi.settings.START_GIL)
     end
-
+	
+    if ADVANCED_JOB_LEVEL == 0 then
+       player:unlockJob(7)
+       player:unlockJob(8)
+       player:unlockJob(9)
+       player:unlockJob(10)
+       player:unlockJob(11)
+       player:unlockJob(12)
+       player:unlockJob(13)
+       player:unlockJob(14)
+       player:unlockJob(15)
+       player:unlockJob(16)
+       player:unlockJob(17)
+       player:unlockJob(19)
+       player:unlockJob(20)
+    end
+	
     player:addItem(536) -- adventurer coupon
 	player:addLSpearl("Vrtra") -- server LS
     player:addTitle(xi.title.NEW_ADVENTURER)
