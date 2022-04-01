@@ -1,12 +1,12 @@
 -----------------------------------
--- Area: Abyssea - Tahrongi
---   NM: Manananggal
------------------------------------
-mixins = {require("scripts/mixins/families/qutrub")}
+-- Zone: Abyssea-Tahrongi
+--  NM:  Glavoid  
 -----------------------------------
 local ID = require("scripts/zones/Abyssea-Tahrongi/IDs")
 require("scripts/globals/status")
-----------------------------------
+require("scripts/globals/titles")
+require("scripts/globals/keyitems")
+-----------------------------------
 local entity = {}
 
 entity.onSpawn = function(mob)
@@ -17,15 +17,15 @@ entity.onSpawn = function(mob)
 	mob:setMod(xi.mod.GRAVITYRES, 350)
 	mob:setMod(xi.mod.SLOWRES, 20)
 	mob:setMod(xi.mod.BLINDRES, 20)
-	mob:setMod(xi.mod.BLINDRES, 20)
 	mob:setMod(xi.mod.SILENCERES, 75)
 	mob:setMod(xi.mod.STUNRES, 10)
-    mob:setStatus(xi.status.INVISIBLE)
+	mob:setMod(xi.modREGAIN, 20)
+	mob:setMod(MOD_REGAIN, 20)
 end
 
-function onMobDisengage(mob)
-    mob:setStatus(xi.status.INVISIBLE)
-end
+-----------------------------------
+-- onMobFight
+-----------------------------------
 
 entity.onMobFight = function(mob, target)
     if (mob:getHPP() < math.random(70,89) and mob:getLocalVar("twohour") == 0) then
@@ -43,9 +43,15 @@ entity.onMobFight = function(mob, target)
 end
 return entity
 
+
 entity.onMobDeath = function(mob,player)
-	local cruor = math.random(400,600)
+	local cruor = math.random(1300,1700)
     player:addCurrency("Cruor",cruor)
+	player:addTitle(xi.title.GLAVOID_STAMPEDER)
 	player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
+    if (player:hasKeyItem(xi.ki.CHIPPED_SANDWORM_TOOTH) == false) then
+        player:addKeyItem(xi.ki.CHIPPED_SANDWORM_TOOTH)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, xi.ki.CHIPPED_SANDWORM_TOOTH)
+    end
 end
 return entity

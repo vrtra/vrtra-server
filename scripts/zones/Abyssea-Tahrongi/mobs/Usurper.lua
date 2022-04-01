@@ -1,12 +1,11 @@
 -----------------------------------
--- Area: Abyssea - Tahrongi
---   NM: Manananggal
------------------------------------
-mixins = {require("scripts/mixins/families/qutrub")}
+-- Zone: Abyssea-Tahrongi
+--  NM:  Usurper
 -----------------------------------
 local ID = require("scripts/zones/Abyssea-Tahrongi/IDs")
 require("scripts/globals/status")
-----------------------------------
+require("scripts/globals/titles")
+-----------------------------------
 local entity = {}
 
 entity.onSpawn = function(mob)
@@ -20,11 +19,7 @@ entity.onSpawn = function(mob)
 	mob:setMod(xi.mod.BLINDRES, 20)
 	mob:setMod(xi.mod.SILENCERES, 75)
 	mob:setMod(xi.mod.STUNRES, 10)
-    mob:setStatus(xi.status.INVISIBLE)
-end
-
-function onMobDisengage(mob)
-    mob:setStatus(xi.status.INVISIBLE)
+	mob:setMod(MOD_REGAIN, 20)
 end
 
 entity.onMobFight = function(mob, target)
@@ -43,9 +38,11 @@ entity.onMobFight = function(mob, target)
 end
 return entity
 
+
 entity.onMobDeath = function(mob,player)
-	local cruor = math.random(400,600)
+	local cruor = math.random(1400,1700)
     player:addCurrency("Cruor",cruor)
 	player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
+    player:addTitle(xi.title.USURPER_DEPOSER)
+
 end
-return entity

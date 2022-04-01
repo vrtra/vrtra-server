@@ -1,9 +1,11 @@
 -----------------------------------
--- Area: Abyssea - Tahrongi
---  Mob: Bog Body
+-- Zone: Abyssea-Tahrongi
+--  mob:  Ephemeral Limule (???)
 -----------------------------------
-mixins = {require("scripts/mixins/families/qutrub")}
 local ID = require("scripts/zones/Abyssea-Tahrongi/IDs")
+-----------------------------------
+local entity = {}
+
 
 entity.onMobDeath = function(mob,player)
 	local cruor = math.random(75,125)

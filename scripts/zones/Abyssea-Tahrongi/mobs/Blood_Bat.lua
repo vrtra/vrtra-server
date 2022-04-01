@@ -1,8 +1,7 @@
 -----------------------------------
--- Area: Abyssea - Tahrongi
---  Mob: Bog Body
+-- Zone: Abyssea-Tahrongi
+--  mob:  Blood Bat (???)
 -----------------------------------
-mixins = {require("scripts/mixins/families/qutrub")}
 local ID = require("scripts/zones/Abyssea-Tahrongi/IDs")
 
 entity.onMobDeath = function(mob,player)
