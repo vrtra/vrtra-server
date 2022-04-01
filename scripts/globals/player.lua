@@ -140,8 +140,8 @@ local function CharCreate(player)
     end
 	
     player:addItem(536) -- adventurer coupon
-	player:addLSpearl("Vrtra") -- server LS
     player:addTitle(xi.title.NEW_ADVENTURER)
+	player:addLinkpearl("Vrtra", true) -- server L
     player:setCharVar("HQuest[moghouseExpo]notSeen", 1) -- needs Moghouse intro
     player:setCharVar("spokeKindlix", 1) -- Kindlix introduction
     player:setCharVar("spokePyropox", 1) -- Pyropox introduction
