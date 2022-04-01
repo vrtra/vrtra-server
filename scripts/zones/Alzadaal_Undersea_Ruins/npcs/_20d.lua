@@ -10,7 +10,7 @@ local entity = {}
 
 entity.onTrigger = function(player, npc)
     if player:checkDistance(npc) < 3 then
-        if player:getZPos() > -40 then
+        if player:getZPos() < -40 then
             player:messageSpecial(ID.text.STAGING_GATE_NYZUL)
             player:messageSpecial(ID.text.STAGING_GATE_INTERACT)
             player:startEvent(114)
