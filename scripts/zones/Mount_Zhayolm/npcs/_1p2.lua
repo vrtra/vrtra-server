@@ -3,6 +3,7 @@
 --  NPC: Gates of Halvung
 -- !pos West Gate
 -----------------------------------
+require("scripts/globals/keyitems")
 local ID = require("scripts/zones/Mount_Zhayolm/IDs")
 -----------------------------------
 local entity = {}
