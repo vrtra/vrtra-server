@@ -9,7 +9,9 @@ cmdprops =
     permission = 0,
     parameters = ""
 };
-function onTrigger(player)
-            player:setPos('0','0','14','60','50');
-end
 
+function onTrigger(player)
+
+    player:setPos(0, 0, 14, 60, 50);
+
+end
