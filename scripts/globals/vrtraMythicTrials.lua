@@ -83,29 +83,44 @@ wepTable =
 	[xi.job.SCH] = {18970 , 18990},	
 }
 
-	
+function mythicText(player, varType, varName)	
+          player:PrintToPlayer(string.format("---Stage One---"), 21)
+          player:PrintToPlayer(string.format("Kill status - Gurfurlur the Menacing: %d", player:getCharVar("Gurfurlur")), 21)  
+          player:PrintToPlayer(string.format("Kill status - Cerberus: %d", player:getCharVar("Cerberus")), 21)  
+	      player:PrintToPlayer(string.format("Kill status - Hydra: %d", player:getCharVar("Hydra")), 21)  
+	      player:PrintToPlayer(string.format("Kill status - Khimaira: %d", player:getCharVar("Khimaira")), 21)  
+	      player:PrintToPlayer(string.format("Kill status - Medusa: %d", player:getCharVar("Medusa")), 21)  
+          player:PrintToPlayer(string.format("---Stage Two---"), 21)
+          player:PrintToPlayer(string.format("Kill status - Sarameya: %d", player:getCharVar("Sarameya")), 21)  
+	      player:PrintToPlayer(string.format("Kill status - Tyger: %d", player:getCharVar("Tyger")), 21)  
+	      player:PrintToPlayer(string.format("Kill status - Tinnin: %d", player:getCharVar("Tinnin")), 21)  
+	      player:PrintToPlayer(string.format("Kill status - PW: %d", player:getCharVar("PW")), 21)  	  
+          player:PrintToPlayer(string.format("---Stage Three---"), 21)
+	      player:PrintToPlayer(string.format("Kill status - Odin: %d", player:getCharVar("Odin")), 21)  
+		  player:PrintToPlayer(string.format("Amount of Alexandrite: %d", player:getCurrency("shining_star")), 21)    
+end
 					
 function mythicTrialsTrigger(player, npc)  
 
 	local mythWeapon  = jobtable[player:getMainJob()]
 
     if mythWeapon 
-		and player:getVar('Gurfurlur') == 1
-	    and player:getVar('Medusa') == 1
-	    and player:getVar('Gulool') == 1
-		and player:getVar('Khimaira') == 1
-		and player:getVar('Hydra') == 1
-		and player:getVar('Cerberus') == 1
+		and player:getCharVar('Gurfurlur') == 1
+	    and player:getCharVar('Medusa') == 1
+	    and player:getCharVar('Gulool') == 1
+		and player:getCharVar('Khimaira') == 1
+		and player:getCharVar('Hydra') == 1
+		and player:getCharVar('Cerberus') == 1
 
 		then
 			player:addItem(mythWeapon)
 			player:messageSpecial(ID.text.ITEM_OBTAINED,mythWeapon) 
-		    player:setVar('Gurfurlur',0) 
-	        player:setVar('Medusa',0) 
-	        player:setVar('Gulool',0) 
-		    player:setVar('Khimaira',0) 
-		    player:setVar('Hydra',0) 
-		    player:setVar('Cerberus',0)				
+		    player:setCharVar('Gurfurlur',0) 
+	        player:setCharVar('Medusa',0) 
+	        player:setCharVar('Gulool',0) 
+		    player:setCharVar('Khimaira',0) 
+		    player:setCharVar('Hydra',0) 
+		    player:setCharVar('Cerberus',0)				
             player:PrintToPlayer(string.format("Trial Overseer : Congratulations, now the real task begins!"), 21)
 
 	else 
@@ -128,24 +143,23 @@ function mythicTrialsTrade(player, npc, trade)
 
 	
             if trade:hasItemQty(baseWeapon,1) and trade:hasItemQty(2571,1) and trade:hasItemQty(2489,1) and tradeCount == 3
-	            and player:getVar('salvage_augment') == 1
-	            and player:getVar('Sarameya') == 1
-	            and player:getVar('Tyger') == 1
-	            and player:getVar('Tinnin') == 1
-				and player:getVar('PW') == 1
+	            and player:getCharVar('Sarameya') == 1
+	            and player:getCharVar('Tyger') == 1
+	            and player:getCharVar('Tinnin') == 1
+				and player:getCharVar('PW') == 1
             then
 					player:tradeComplete()
 					player:addItem(rewardWeapon)
 					player:messageSpecial(ID.text.ITEM_OBTAINED,rewardWeapon)
 					player:PrintToPlayer(string.format("Trial Overseer : Congratulations on your Stage 2 Mythic Weapon!"), 21)
-					player:setVar('Tyger',0)
-					player:setVar('Sarameya',0)
-					player:setVar('Tinnin',0)
-					player:setVar('PW',0)	
+					player:setCharVar('Tyger',0)
+					player:setCharVar('Sarameya',0)
+					player:setCharVar('Tinnin',0)
+					player:setCharVar('PW',0)	
                     
 			
             elseif trade:hasItemQty(bWeapon,1) and tradeCount == 1
-			   	    and player:getVar('Odin') == 1
+			   	    and player:getCharVar('Odin') == 1
 	                and player:getCurrency("shining_star") > 9998 
 
 			then
@@ -153,10 +167,10 @@ function mythicTrialsTrade(player, npc, trade)
 					player:PrintToPlayer(string.format("Trial Overseer : Speak to Zalsuhm in Lower Jeuno for details of upgrade your weapon to 80."), 21)
 					player:tradeComplete()
 					player:addItem(rewWeapon)
-					player:setVar('mythic_augment',1)
-					player:setVar('mythic_complete',1)
+					player:setCharVar('mythic_augment',1)
+					player:setCharVar('mythic_complete',1)
 					player:messageSpecial(ID.text.ITEM_OBTAINED,rewWeapon)
-					player:setVar('Odin',0)
+					player:setCharVar('Odin',0)
 			        player:delCurrency("shining_star",9999)
 			    else
                     player:PrintToPlayer(string.format("Trial Overseer : You do not have the required NM's killed."), 21)
