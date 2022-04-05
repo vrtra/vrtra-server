@@ -41,7 +41,6 @@ entity.onMobFight = function(mob, target)
         mob:setLocalVar("twohour", 3)
     end
 end
-return entity
 
 entity.onMobDeath = function(mob,player)
 	local cruor = math.random(400,600)

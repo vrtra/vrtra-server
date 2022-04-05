@@ -36,13 +36,11 @@ entity.onMobFight = function(mob, target)
         mob:setLocalVar("twohour", 3)
     end
 end
-return entity
-
 
 entity.onMobDeath = function(mob,player)
 	local cruor = math.random(1400,1700)
     player:addCurrency("Cruor",cruor)
 	player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
     player:addTitle(xi.title.USURPER_DEPOSER)
-
 end
+return entity

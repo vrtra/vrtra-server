@@ -23,12 +23,11 @@ entity.onMobSpawn = function(mob)
 	
 end
 
-entity.onMobDeath = function(mob,player)
-		
+entity.onMobDeath = function(mob,player)	
 		local cruor = math.random(200,300)
 
 		player:addCurrency("Cruor",cruor)
-		player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)		
+		player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)	
 end
 
 entity.onMobDespawn = function(mob)

@@ -3,6 +3,7 @@
 --  mob:  Blood Bat (???)
 -----------------------------------
 local ID = require("scripts/zones/Abyssea-Tahrongi/IDs")
+local entity = {}
 
 entity.onMobDeath = function(mob,player)
 	local cruor = math.random(75,125)

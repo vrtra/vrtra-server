@@ -3,10 +3,8 @@
 --  mob:  Cannered Noz (???)
 -----------------------------------
 local ID = require("scripts/zones/Abyssea-Tahrongi/IDs")
-mixins = {require("scripts/mixins/families/corpselight")}
-require("scripts/globals/settings")
 require("scripts/globals/status")
-
+local entity = {}
 
 entity.onSpawn = function(mob)
 	mob:setMod(dsp.mod.SLEEPRES, 100)

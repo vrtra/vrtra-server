@@ -72,7 +72,6 @@ entity.onMobFight = function(mob,target)
         mob:setMobMod(xi.mobMod.SPELL_LIST, 153)
     end
 end
-return entity
 
 entity.onMobDeath = function(mob, player, isKiller)
 	local cruor = math.random(700,900)
@@ -80,3 +79,4 @@ entity.onMobDeath = function(mob, player, isKiller)
 	player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
     player:addTitle(xi.title.IRATHAM_CAPTURER)
 end
+return entity

@@ -40,7 +40,6 @@ entity.onMobFight = function(mob, target)
         -- This 'else' can be removed if that isn't the case, and a localVar added so it only execs once.
     end
 end
-return entity
 
 entity.onMobDeath = function(mob,player)
 

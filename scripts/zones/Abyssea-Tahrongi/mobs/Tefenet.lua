@@ -4,8 +4,6 @@
 -----------------------------------
 local ID = require("scripts/zones/Abyssea-Tahrongi/IDs")
 -----------------------------------
-local entity = {}
-
 require("scripts/globals/status")
 require("scripts/globals/keyitems")
 -----------------------------------
@@ -38,3 +36,4 @@ entity.onMobDeath = function(mob,player)
 		player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
 	end
 end
+return entity

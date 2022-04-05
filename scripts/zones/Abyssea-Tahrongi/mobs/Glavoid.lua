@@ -23,10 +23,6 @@ entity.onSpawn = function(mob)
 	mob:setMod(MOD_REGAIN, 20)
 end
 
------------------------------------
--- onMobFight
------------------------------------
-
 entity.onMobFight = function(mob, target)
     if (mob:getHPP() < math.random(70,89) and mob:getLocalVar("twohour") == 0) then
         mob:useMobAbility(695)
@@ -41,8 +37,6 @@ entity.onMobFight = function(mob, target)
         mob:setLocalVar("twohour", 3)
     end
 end
-return entity
-
 
 entity.onMobDeath = function(mob,player)
 	local cruor = math.random(1300,1700)

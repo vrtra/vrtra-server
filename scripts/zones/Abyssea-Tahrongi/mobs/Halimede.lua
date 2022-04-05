@@ -27,8 +27,8 @@ entity.onMobFight = function(mob, target)
         mob:setLocalVar("twohour", 1)
     end
 end
-return entity
-function onMonsterMagicPrepare(caster, target)
+
+entity.onMonsterMagicPrepare = function(caster, target)
 local spellList =  
     {       
         [1] = 356, 

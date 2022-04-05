@@ -21,7 +21,7 @@ entity.onSpawn = function(mob)
 	mob:setMod(xi.mod.STUNRES, 10)
 	mob:setMod(xi.modREGAIN, 20)
 end
-function OnMobSkillCheck(mob, target)
+entity.OnMobSkillCheck = function(mob, target)
     if mob:hasStatusEffect(xi.status.REGEN) == true then
        mob:addMod(xi.mod.EVASION_BOOST, 100)
     else 
@@ -50,7 +50,6 @@ entity.onMobFight = function(mob, target)
         mob:setLocalVar("twohour", 3)
     end
 end
-return entity
 
 entity.onMobDeath = function(mob,player)
 	local cruor = math.random(1300,1700)

@@ -31,3 +31,4 @@ entity.onMobDeath = function(mob,player)
 	player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
 	mob:setLocalVar("aerialblast", 0)
 end
+return entity

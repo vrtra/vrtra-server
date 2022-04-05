@@ -23,20 +23,19 @@ entity.onSpawn = function(mob)
 end
 
 entity.onMobFight = function(mob, target)
-    if (mob:getHPP() < math.random(70,89) and mob:getLocalVar("twohour") == 0) then
+    if mob:getHPP() < math.random(70,89) and mob:getLocalVar("twohour") == 0 then
         mob:useMobAbility(694)
         mob:setLocalVar("twohour", 1)
     end
-    if (mob:getHPP() < math.random(40,59) and mob:getLocalVar("twohour") == 1) then
+    if mob:getHPP() < math.random(40,59) and mob:getLocalVar("twohour") == 1 then
         mob:useMobAbility(694)
         mob:setLocalVar("twohour", 2)
     end
-    if (mob:getHPP() < math.random(10,29) and mob:getLocalVar("twohour") == 2) then
+    if mob:getHPP() < math.random(10,29) and mob:getLocalVar("twohour") == 2 then
         mob:useMobAbility(694)
         mob:setLocalVar("twohour", 3)
     end
 end
-return entity
 
 entity.onMobDeath = function(mob,player)
 	local drop = 5
@@ -54,3 +53,4 @@ entity.onMobDeath = function(mob,player)
 		player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
 	end
 end
+return entity

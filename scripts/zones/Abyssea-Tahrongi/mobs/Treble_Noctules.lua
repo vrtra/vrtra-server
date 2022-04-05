@@ -8,9 +8,6 @@ require("scripts/globals/status")
 -----------------------------------
 local entity = {}
 
------------------------------------
-local entity = {}
-
 entity.onSpawn = function(mob)
 	mob:setMod(xi.mod.SLEEPRES, 100)
 	mob:setMod(xi.mod.PARALYZERES, 20)

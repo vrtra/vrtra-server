@@ -25,7 +25,6 @@ entity.onMobDeath = function(mob,player)
     player:addCurrency("Cruor",cruor)
 	player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
 end
-return entity
 
 entity.onMobDespawn = function(mob, player)
 	local USURPER_CHANCE = 100

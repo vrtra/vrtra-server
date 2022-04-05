@@ -45,7 +45,6 @@ entity.onMobFight = function(mob, target)
 	   mob:setMod(xi.mod.UPHYSDMG, 90)
     end
 end
-return entity
 
 
 entity.onMobDeath = function(mob,player)

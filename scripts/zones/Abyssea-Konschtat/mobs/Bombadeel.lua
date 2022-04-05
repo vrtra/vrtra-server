@@ -7,7 +7,7 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 require("scripts/globals/keyitems")
 -----------------------------------local entity = {}
-
+local entity = {}
 entity.onMobSpawn = function(mob)
 
 	mob:setMod(xi.mod.SLEEPRES, 100)
@@ -36,3 +36,4 @@ entity.onMobDeath = function(mob,player)
 		player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
 	end
 end
+return entity

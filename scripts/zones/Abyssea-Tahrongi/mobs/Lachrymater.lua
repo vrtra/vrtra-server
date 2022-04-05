@@ -4,13 +4,9 @@
 -----------------------------------
 local ID = require("scripts/zones/Abyssea-Tahrongi/IDs")
 -----------------------------------
-local entity = {}-----------------------------------
-
 require("scripts/globals/status")
 require("scripts/globals/keyitems")
-require("scripts/zones/Abyssea-Tahrongi/IDs")-----------------------------------
--- onMobSpawn
-----------------------------------------------------------------------
+------------------------------------
 local entity = {}
 
 entity.onSpawn = function(mob)
@@ -24,10 +20,7 @@ entity.onSpawn = function(mob)
 	mob:addMod(xi.mod.SLOWRES, 20)
 	mob:addMod(xi.mod.BLINDRES, 20)
 	mob:addMod(xi.mod.SILENCERES, 20)
-end-----------------------------------
--- onMobFight
------------------------------------
-
+end
 entity.onMobFight = function(mob, target)
     if (mob:getHPP() < math.random(60,89) and mob:getLocalVar("twohour") == 0) then
         mob:useMobAbility(691)
@@ -38,9 +31,6 @@ entity.onMobFight = function(mob, target)
         mob:setLocalVar("twohour", 2)
     end
 end
-return entity-----------------------------------
--- onMobDeath
------------------------------------
 
 entity.onMobDeath = function(mob,player)
 	local cruor = math.random(400,600)
@@ -48,3 +38,4 @@ entity.onMobDeath = function(mob,player)
 	player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
 	mob:setLocalVar("twohour", 0)
 end
+return entity

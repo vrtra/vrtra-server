@@ -27,7 +27,7 @@ entity.onMobFight = function(mob, target)
         mob:setLocalVar("twohour", 1)
     end
 end
-return entity
+
 
 entity.onMobDeath = function(mob,player)
 		

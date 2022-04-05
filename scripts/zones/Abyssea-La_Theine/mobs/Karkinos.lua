@@ -29,7 +29,7 @@ entity.onMobDeath = function(mob,player)
 	local cruor = math.random(1300,1700)
 	local drop = 5
 	
-	if (drop > math.random(0,99) and player:hasKeyItem(xi.ki.CRAB_COMPANION) == false then
+	if drop > math.random(0,99) and player:hasKeyItem(xi.ki.CRAB_COMPANION) == false then
         player:addKeyItem(xi.ki.CRAB_COMPANION)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED,xi.ki.CRAB_COMPANION)
 		player:addTitle(xi.title.KARKINOS_CLAWCRUSHER)

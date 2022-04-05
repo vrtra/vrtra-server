@@ -25,7 +25,7 @@ function onSpellPrecast(mob, spell)
         spell:setRadius(30)
     end
 end
-return entity
+
 entity.onMobDeath = function(mob,player)
 	local cruor = math.random(400,600)
     player:addCurrency("Cruor",cruor)

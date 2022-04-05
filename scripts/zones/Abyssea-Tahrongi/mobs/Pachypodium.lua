@@ -25,3 +25,5 @@ entity.onMobDeath = function(mob, player, isKiller)
         player:PrintToPlayer("Please return to the Orange Hat Moogle to receive your reward.", 21)
     end	 
 end
+
+return entity

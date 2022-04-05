@@ -35,6 +35,7 @@ entity.onMobDeath = function(mob,player)
 		player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
 	else
 		player:addCurrency("Cruor",cruor)
-	player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)		
+	   player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)	
+	end
 end
 return entity
