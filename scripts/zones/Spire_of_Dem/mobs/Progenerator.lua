@@ -28,7 +28,6 @@ entity.onMobDeath = function(mob, player, isKiller)
             baby:setHP(0)
         end
     end
-	player:setCharVar("dem_win", 1)
 end
 
 return entity

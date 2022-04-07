@@ -21,7 +21,6 @@ entity.onMobFight = function(mob, target)
 end
 
 entity.onMobDeath = function(mob, player, isKiller)
-	player:setCharVar("holla_win", 1)
 end
 
 return entity

@@ -11,7 +11,7 @@ require("scripts/globals/pathfind")
 local entity = {}
 
 
-local path =
+local pathNodes =
 {
     168, 23, -637,
     199, 16, -640,
@@ -61,14 +61,12 @@ local path =
     158, 25, -655,
     }
 
-function onMobInitialize(mob)
+entity.onInitialize = function(mob)
     mob:addStatusEffectEx(xi.effect.BLAZE_SPIKES,0,24,0,5)
 end
------------------------------------
-local entity = {}
 
 entity.onSpawn = function(mob)
-    onMobRoam(mob)
+    entity.onPath(mob)
 	mob:setMod(xi.mod.SLEEPRES, 100)
 	mob:setMod(xi.mod.PARALYZERES, 20)
 	mob:setMod(xi.mod.BINDRES, 75)
@@ -81,14 +79,15 @@ entity.onSpawn = function(mob)
 	mob:setMod(xi.mod.STUNRES, 10)
 end
 
-function onPath(mob)
-    xi.path.patrol(mob, path, xi.path.flag.RUN)    
+entity.onPath = function(mob)
+    xi.path.patrol(mob, pathNodes)
 end
 
-function onMobRoam(mob)
-    if (mob:isFollowingPath() == false) then
-        mob:pathThrough(xi.path.first(path), xi.path.flag.RUN)
-    end    
+entity.onMobRoam = function(mob)
+    -- move to start position if not moving
+    if not mob:isFollowingPath() then
+        mob:pathThrough(xi.path.first(pathNodes))
+    end
 end
 
 entity.onMobFight = function(mob, target)
