@@ -4,14 +4,14 @@
 -----------------------------------
 local ID = require("scripts/zones/Abyssea-Tahrongi/IDs")
 -----------------------------------
-local entity = {}
-
 require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/pathfind")
 
+local entity = {}
 
-local path =
+
+local pathNodes =
 {
     -60, 1, -58,
     -33, -3, -61,
@@ -41,8 +41,8 @@ local path =
 -----------------------------------
 local entity = {}
 
-entity.onSpawn = function(mob)
-    onMobRoam(mob)
+entity.onMobSpawn = function(mob)
+    entity.onPath(mob)
 	mob:setMod(xi.mod.SLEEPRES, 100)
 	mob:setMod(xi.mod.PARALYZERES, 20)
 	mob:setMod(xi.mod.BINDRES, 75)
@@ -53,16 +53,18 @@ entity.onSpawn = function(mob)
 	mob:setMod(xi.mod.SILENCERES, 75)
 	mob:setMod(xi.mod.STUNRES, 10)
 end
-    
-function onPath(mob)
-    xi.path.patrol(mob, path, xi.path.flag.RUN)    
+
+entity.onPath = function(mob)
+    xi.path.patrol(mob, pathNodes)
 end
 
-function onMobRoam(mob)
-    if (mob:isFollowingPath() == false) then
-        mob:pathThrough(xi.path.first(path), xi.path.flag.RUN)
-    end    
+entity.onMobRoam = function(mob)
+    -- move to start position if not moving
+    if not mob:isFollowingPath() then
+        mob:pathThrough(xi.path.first(pathNodes))
+    end
 end
+
 entity.onMobFight = function(mob,target)
     if mob:getHPP() < 20 then
         mob:setMobMod(xi.mobMod.SPELL_LIST, 155)
