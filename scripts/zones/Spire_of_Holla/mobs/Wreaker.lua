@@ -1,5 +1,5 @@
 -----------------------------------
--- Area: Spire of Dem
+-- Area: Spire of Holla
 --  Mob: Progenerator
 -----------------------------------
 local entity = {}
@@ -21,14 +21,7 @@ entity.onMobFight = function(mob, target)
 end
 
 entity.onMobDeath = function(mob, player, isKiller)
-    local momma = mob:getID()
-    for i = momma + 1, momma + mob:getLocalVar("maxBabies") do
-        local baby = GetMobByID(i)
-        if baby:isSpawned() then
-            baby:setHP(0)
-        end
-    end
-	player:setCharVar("dem_win", 1)
+	player:setCharVar("holla_win", 1)
 end
 
 return entity

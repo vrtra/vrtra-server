@@ -1,4 +1,5 @@
 ﻿/*
+/*
 ===========================================================================
 
   Copyright (c) 2010-2015 Darkstar Dev Teams
@@ -741,6 +742,7 @@ enum EFFECT
     // EFFECT_PLACEHOLDER           = 804  // Description
     // 804-1022
     // EFFECT_PLACEHOLDER           = 1023 // The client dat file seems to have only this many "slots", results of exceeding that are untested.
+	
 };
 
 #define MAX_EFFECTID 804 // 768 real + 32 custom
