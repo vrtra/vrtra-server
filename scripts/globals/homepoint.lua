@@ -8,23 +8,23 @@ xi.homepoint = xi.homepoint or {}
 local HPs =
 {
     -- [Index]= [1]group(if to/from both same group, then no cost) [2]fee multiplier [3]dest{x, y, z, rot, zone}
-    [  0] = {group = 1, fee = 1, dest = {  -85.554,       1, -64.554,  45, 230}}, -- Southern San d'Oria #1
-    [  1] = {group = 1, fee = 1, dest = {     44.1,       2,   -34.5, 170, 230}}, -- Southern San d'Oria #2
-    [  2] = {group = 1, fee = 1, dest = {    140.5,      -2,     121,   0, 230}}, -- Southern San d'Oria #3
-    [  3] = {group = 1, fee = 1, dest = {     -178,       4,      71,   0, 231}}, -- Northern San d'Oria #1
-    [  4] = {group = 1, fee = 1, dest = {       10,    -0.2,      95,   0, 231}}, -- Northern San d'Oria #2
-    [  5] = {group = 1, fee = 1, dest = {       70,    -0.2,      10,   0, 231}}, -- Northern San d'Oria #3
-    [  6] = {group = 1, fee = 1, dest = {      -38,      -4,     -63,   0, 232}}, -- Port San d'Oria #1
-    [  7] = {group = 1, fee = 1, dest = {       48,     -12,    -105,   0, 232}}, -- Port San d'Oria #2
-    [  8] = {group = 1, fee = 1, dest = {       -6,     -13,    -150,   0, 232}}, -- Port San d'Oria #3
-    [  9] = {group = 2, fee = 1, dest = {       39,       0,     -43,   0, 234}}, -- Bastok Mines #1
-    [ 10] = {group = 2, fee = 1, dest = {      118,       1,     -58,   0, 234}}, -- Bastok Mines #2
-    [ 11] = {group = 2, fee = 1, dest = {     -342,     -10,    -154,   0, 235}}, -- Bastok Markets #1
-    [ 12] = {group = 2, fee = 1, dest = {     -328,     -12,     -33,   0, 235}}, -- Bastok Markets #2
-    [ 13] = {group = 2, fee = 1, dest = {     -189,      -8,      26,   0, 235}}, -- Bastok Markets #3
-    [ 14] = {group = 2, fee = 1, dest = {      124,       8,       7,   0, 236}}, -- Port Bastok #1
-    [ 15] = {group = 2, fee = 1, dest = {       42,     8.5,    -244,   0, 236}}, -- Port Bastok #2
-    [ 16] = {group = 2, fee = 1, dest = {       46,     -14,     -19,   0, 237}}, -- Metalworks #1
+    [  0] = {group = 1, fee = 1, dest = {  -84.468,       1, -65.454,  97, 230}}, -- Southern San d'Oria #1
+    [  1] = {group = 1, fee = 1, dest = {       45,       2,     -34,  65, 230}}, -- Southern San d'Oria #2
+    [  2] = {group = 1, fee = 1, dest = {      140,      -2,     124,  65, 230}}, -- Southern San d'Oria #3
+    [  3] = {group = 1, fee = 1, dest = { -179.101,       4,  71.279,   0, 231}}, -- Northern San d'Oria #1
+    [  4] = {group = 1, fee = 1, dest = {       10,  -0.199,      94, 195, 231}}, -- Northern San d'Oria #2
+    [  5] = {group = 1, fee = 1, dest = {       69,  -0.199,       9, 227, 231}}, -- Northern San d'Oria #3
+    [  6] = {group = 1, fee = 1, dest = {      -38,      -4,     -64, 195, 232}}, -- Port San d'Oria #1
+    [  7] = {group = 1, fee = 1, dest = {       49,     -12,    -106, 165, 232}}, -- Port San d'Oria #2
+    [  8] = {group = 1, fee = 1, dest = {       -6,     -13,    -151, 195, 232}}, -- Port San d'Oria #3
+    [  9] = {group = 2, fee = 1, dest = {   38.189,       0, -42.618,   0, 234}}, -- Bastok Mines #1
+    [ 10] = {group = 2, fee = 1, dest = {      117,   0.994,     -58,   0, 234}}, -- Bastok Mines #2
+    [ 11] = {group = 2, fee = 1, dest = {     -343, -10.004,    -156, 165, 235}}, -- Bastok Markets #1
+    [ 12] = {group = 2, fee = 1, dest = {     -329,     -12,     -33,   0, 235}}, -- Bastok Markets #2
+    [ 13] = {group = 2, fee = 1, dest = {     -189,      -8,      27,  65, 235}}, -- Bastok Markets #3
+    [ 14] = {group = 2, fee = 1, dest = {      125,     8.5,       7, 227, 236}}, -- Port Bastok #1
+    [ 15] = {group = 2, fee = 1, dest = {       41,     8.5,    -238, 130, 236}}, -- Port Bastok #2
+    [ 16] = {group = 2, fee = 1, dest = {       45,     -14,     -18,  65, 237}}, -- Metalworks #1
     [ 17] = {group = 3, fee = 1, dest = {      -32,      -5,     132,   0, 238}}, -- Windurst Waters #1
     [ 18] = {group = 3, fee = 1, dest = {    138.5,       0,     -14,   0, 238}}, -- Windurst Waters #2
     [ 19] = {group = 3, fee = 1, dest = {      -72,      -5,     125,   0, 239}}, -- Windurst Walls #1
@@ -105,15 +105,15 @@ local HPs =
     [ 94] = {group = 0, fee = 2, dest = {      102,       0,     269, 191, 204}}, -- Fei'Yin #2
     [ 95] = {group = 0, fee = 2, dest = {      -63,      50,      81, 192, 205}}, -- Ifrit's Cauldron #1
     [ 96] = {group = 0, fee = 2, dest = {      573,       9,    -500,   0, 208}}, -- Quicksand Caves #2
-    [ 97] = {group = 1, fee = 1, dest = {     -165,      -1,      12,  65, 230}}, -- Southern San d'Oria #4
-    [ 98] = {group = 1, fee = 1, dest = {     -132,      12,     194, 170, 231}}, -- Northern San d'Oria #4
-    [ 99] = {group = 2, fee = 1, dest = {       87,       7,       1,   0, 234}}, -- Bastok Mines #3
-    [100] = {group = 2, fee = 1, dest = {     -192,      -6,     -69,   0, 235}}, -- Bastok Markets #4
-    [101] = {group = 2, fee = 1, dest = {     -127,      -6,       8, 206, 236}}, -- Port Bastok #3
-    [102] = {group = 2, fee = 1, dest = {      -76,       2,       3, 124, 237}}, -- Metalworks #2
+    [ 97] = {group = 1, fee = 1, dest = {     -164,      -1,      11, 130, 230}}, -- Southern San d'Oria #4
+    [ 98] = {group = 1, fee = 1, dest = {     -134,      12,     195,   0, 231}}, -- Northern San d'Oria #4
+    [ 99] = {group = 2, fee = 1, dest = {       86,       7,       1,   0, 234}}, -- Bastok Mines #3
+    [100] = {group = 2, fee = 1, dest = {     -190,      -6,     -68,  97, 235}}, -- Bastok Markets #4
+    [101] = {group = 2, fee = 1, dest = {     -126,      -6,      11,  97, 236}}, -- Port Bastok #3
+    [102] = {group = 2, fee = 1, dest = {      -77,       2,       3, 130, 237}}, -- Metalworks #2
     [103] = {group = 3, fee = 1, dest = {        5,      -4,    -175, 130, 238}}, -- Windurst Waters #3
     [104] = {group = 8, fee = 1, dest = {      -65,      -5,      54, 127, 252}}, -- Norg #2
-    [105] = {group = 9, fee = 1, dest = {      -21,       8,     110,  64, 247}}, -- Rabao #2
+    [105] = {group = 9, fee = 1, dest = {      -21,   8.148,     111,  64, 247}}, -- Rabao #2
     [106] = {group = 7, fee = 1, dest = {      130,       0,     -16,   0,  50}}, -- Aht Urhgan Whitegate #2
     [107] = {group = 7, fee = 1, dest = {     -108,      -6,     108, 192,  50}}, -- Aht Urhgan Whitegate #3
     [108] = {group = 7, fee = 1, dest = {      -99,       0,     -68,   0,  50}}, -- Aht Urhgan Whitegate #4
