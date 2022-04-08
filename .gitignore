@@ -220,3 +220,6 @@ memcheck.out.*
 
 # Auto-generated files
 /src/common/version.cpp
+scripts/zones/Port_Windurst/npcs/Curio_Vendor_Moogle.lua.bak
+scripts/zones/Port_San_dOria/npcs/Curio_Vendor_Moogle.lua.bak
+scripts/zones/Port_Bastok/npcs/Curio_Vendor_Moogle.lua.bak
