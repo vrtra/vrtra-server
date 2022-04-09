@@ -25,7 +25,7 @@ function onTrigger(player)
                 "Yes",
                 function(playerArg)
                     playerArg:PrintToPlayer("Teleport to Vrtra Custom Zone Processing", xi.msg.channel.NS_SAY)
-                    playerArg:setPos(88.1, -5.75, 0, 130, 156)
+                    
                 end,
             },
             {
@@ -41,7 +41,9 @@ function onTrigger(player)
             playerArg:PrintToPlayer("Teleport Menu Cancelled", xi.msg.channel.NS_SAY)
         end,
         onEnd = function(playerArg)
-            -- NOTE: This could be used to release a locked player,
+
+			   playerArg:setPos(88.1, -5.75, 0, 130, 156)
+
           --  playerArg:PrintToPlayer("Welcome to the Vrtra Custom Zone", xi.msg.channel.NS_SAY)
         end,
     }

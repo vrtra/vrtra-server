@@ -18,8 +18,7 @@ entity.onTrigger = function(player, npc)
             {
                 "Odin",
                 function(playerArg)
-                    if GetMobByID(17097716):isEngaged() == false and
-					   playerArg:getMainLvl() > 79 and 
+                    if GetMobByID(17097716):isSpawned() == false and
 					   playerArg:getCharVar("Odin_Ready") == 1 and 
 					   playerArg:getCurrentMission(TOAU) == xi.mission.id.toau.ETERNAL_MERCENARY then
                        playerArg:setPos(419.768, -215.244, 20.258, 145.000)
@@ -33,7 +32,7 @@ entity.onTrigger = function(player, npc)
             {
                 "Alexander",
                 function(playerArg)
-                    playerArg:PrintToPlayer("Not Implemented, xi.msg.channel.NS_SAY)
+                    playerArg:PrintToPlayer("Not Implemented", xi.msg.channel.NS_SAY)
                 end,
             },
             {
@@ -49,8 +48,7 @@ entity.onTrigger = function(player, npc)
           --  playerArg:PrintToPlayer("Teleport Menu Cancelled", xi.msg.channel.NS_SAY)
         end,
         onEnd = function(playerArg)
-            -- NOTE: This could be used to release a locked player,
-          --  playerArg:PrintToPlayer("Welcome to the Vrtra Custom Zone", xi.msg.channel.NS_SAY)
+
         end,
     }
 

@@ -42,7 +42,7 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
  	local wsPoints = player:getVar("PYRRHIC_KLEOS")	
     if damage > 0 then
         if not target:hasStatusEffect(xi.effect.EVASION_DOWN) then
-            local duration = tp / 1000 * 60 * applyResistanceAddEffect(player,target,ximagic.ele.ICE,0)
+            local duration = tp / 1000 * 60 * applyResistanceAddEffect(player,target,xi.magic.ele.ICE,0)
             target:addStatusEffect(xi.effect.EVASION_DOWN, 10, 0, duration)
         end
        xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
