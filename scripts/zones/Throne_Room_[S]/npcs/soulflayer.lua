@@ -27,7 +27,7 @@ job_table =
 	[xi.job.SMN] = 875,
 	[xi.job.BLU] = 1054,
 	[xi.job.COR] = 1055,
-	[xi.job.PUP] = 1056,
+ 	[xi.job.PUP] = 1056,
 	[xi.job.DNC] = 1057,
 	[xi.job.SCH] = 1058,
 	
@@ -36,18 +36,15 @@ job_table =
 entity.onTrade = function(player,npc,trade)
      
 	local job = job_table[player:getMainJob()]
-	local transfer = player:getVar("TransferNeeded")
+	local transfer = player:getCharVar("TransferNeeded")
 	
-	if job and transfer == 1 and trade:hasItemQty(2559,1) and trade:getItemCount() == 1 then 
-	    player:levelCap(80)
+	if job and transfer == 1 and trade:hasItemQty(536,1) and trade:getItemCount() == 1 then 
+	    player:setLevelCap(80)
 		player:setLevel(80)
 		player:setsLevel(40)
-		player:addKeyItem(job)
 		player:setMerits(30)
-		player:addKeyItem(606)
-		player:setVar("TransferNeeded",2)
-		player:addMission(ZILART,xi.mission.id.zilart.THE_NEW_FRONTIER)
-		player:tradeComplete()
+		player:addKeyItem(job)
+		player:setCharVar("TransferNeeded",0) 
 		player:messageSpecial(ID.text.KEYITEM_OBTAINED,job)
 		player:PrintToPlayer(string.format("Transfer Overseer : Now you are ready to face all kinds of adventures!"), 21)
 		player:PrintToPlayer(string.format("    Please go speak to Vrtra for more information!"), 21)
@@ -56,25 +53,22 @@ entity.onTrade = function(player,npc,trade)
     end
 		if player:getNation() == xi.nation.WINDURST then 
 	       player:setRank(6)
-		   player:setVar("WINDY_RANK",1)
-		   player:setVar("MissionStatus",4)
-		   player:addKeyItem(xi.ki.SHADOW_FRAGMENT)
+		   player:setCharVar("WINDY_RANK",1)
+		   player:setCharVar("MissionStatus",4)
 		elseif player:getNation() == xi.nation.SANDORIA then 
 	       player:setRank(6)
-		   player:setVar("MissionStatus",4)
-		   player:addKeyItem(xi.ki.SHADOW_FRAGMENT)
-		   player:setVar("SANDY_RANK",1)
+		   player:setCharVar("SANDY_RANK",1)
+		   player:setCharVar("MissionStatus",4)
 		elseif player:getNation() == xi.nation.BASTOK then 
 	       player:setRank(6)
-		   player:setVar("BASTOK_RANK",1)
-		   player:setVar("MissionStatus",4)
-		   player:addKeyItem(xi.ki.SHADOW_FRAGMENT)		   
+		   player:setCharVar("BASTOK_RANK",1)
+		   player:setCharVar("MissionStatus",4)
 		end	
 end
 
 entity.onTrigger = function(player)
 
-	local transfer = player:getVar("TransferNeeded")
+	local transfer = player:getCharVar("TransferNeeded")
 	
 	if transfer == 1 then
         player:PrintToPlayer(string.format("Transfer Overseer : Well well well, look what the Eft dragged in."), 21)
@@ -83,7 +77,7 @@ entity.onTrigger = function(player)
 	    player:PrintToPlayer(string.format("   Be sure that you are on the job and sub job that you want to play and have boosted."), 21)
 		player:PrintToPlayer(string.format("   Sadly, I can not let you transfer PUP as you need to do the quests to open the job."), 21) 
 	    player:PrintToPlayer(string.format("   You can switch jobs over at the Shadow Lord Moogle right here in this zone."), 21)
-        player:PrintToPlayer(string.format("   When ready, trade that fancy Mog Bonanaza Marble you received to me and we'll get started."), 21)
+        player:PrintToPlayer(string.format("   When ready, trade that Adventurer Coupon you received to me and we'll get started."), 21)
     else
 		player:PrintToPlayer(string.format("Transfer Overseer : Hello there.  I do not believe we have any business to conduct at this time."), 21)
     end
