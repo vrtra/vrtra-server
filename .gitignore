@@ -38,3 +38,7 @@ log/login-server.log
 *.log
 *.ninja
 *.c
+*.log
+log/login-server.log
+log/map-server.log
+log/search-server.log
