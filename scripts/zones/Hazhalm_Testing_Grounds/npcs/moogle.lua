@@ -12,6 +12,7 @@ entity.onTrigger = function(player, npc)
 	playerArg:getCharVar("Odin_Ready") == 1 and 
 	playerArg:getCurrentMission(TOAU) == xi.mission.id.toau.ETERNAL_MERCENARY then
     SpawnMob(17097716)
+	player:PrintToPlayer(string.format("Moogle: Spawning Odin!"), 21)
 	end
 end
 return entity
