@@ -20,6 +20,13 @@ function onTrigger(player, teleport)
         end,
         options =
         {
+		    {
+                "Your Homepoint",
+                function(playerArg)
+                    playerArg:PrintToPlayer("Teleport to Vrtra Custom Zone Processing", xi.msg.channel.NS_SAY)
+                    playerArg:warp()
+                end,
+            },	
             {
                 "Vrtra Custom Zone",
                 function(playerArg)
