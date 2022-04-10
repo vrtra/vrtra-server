@@ -2,10 +2,11 @@
 -- Area: Hazhalm Testing Grounds
 --  NPC: Entry Gate (TOAU-36)
 -----------------------------------
+require("scripts/globals/status")
 local entity = {}
 
 
-entity.onTrigger = function(player, npc)
+entity.onTrigger = function(player, npc, npcid)
     local menu =
     {
         title = "Choose your Battlefield",
@@ -23,7 +24,6 @@ entity.onTrigger = function(player, npc)
 					   playerArg:getCharVar("Odin_Ready") == 1 and 
 					   playerArg:getCurrentMission(TOAU) == xi.mission.id.toau.ETERNAL_MERCENARY then
                        playerArg:setPos(419.768, -215.244, 20.258, 145.000)
-					   SpawnMob(17097716)
 	                else
 	                   player:PrintToPlayer(string.format("Odin is spawned or You don't meet the requirements to enter. Wait for him to despawn or die before you enter!"), 21)
 	                end
@@ -33,7 +33,7 @@ entity.onTrigger = function(player, npc)
             {
                 "Alexander",
                 function(playerArg)
-                    playerArg:PrintToPlayer("Not Implemented, xi.msg.channel.NS_SAY)
+                    playerArg:PrintToPlayer("Not Implemented", xi.msg.channel.NS_SAY)
                 end,
             },
             {
