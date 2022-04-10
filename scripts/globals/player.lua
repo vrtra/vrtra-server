@@ -139,12 +139,14 @@ local function CharCreate(player)
        player:unlockJob(20)
     end
 	
+	
     player:addItem(536) -- adventurer coupon
     player:addTitle(xi.title.NEW_ADVENTURER)
-	player:addLinkpearl("Vrtra", true) -- server L
+	player:addLinkpearl("Vrtra", true) -- server LS
     player:setCharVar("HQuest[moghouseExpo]notSeen", 1) -- needs Moghouse intro
     player:setCharVar("spokeKindlix", 1) -- Kindlix introduction
     player:setCharVar("spokePyropox", 1) -- Pyropox introduction
+    player:setCharVar("TransferNeeded", 1) -- needs transfer from the Overseer in !vrtra
     player:setCharVar("TutorialProgress", 1) -- Has not started tutorial
     player:setCharVar("EinherjarIntro", 1) -- Has not seen Einherjar intro
     player:setNewPlayer(true) -- apply new player flag
