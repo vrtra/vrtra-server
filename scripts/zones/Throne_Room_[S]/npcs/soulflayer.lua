@@ -55,13 +55,16 @@ entity.onTrade = function(player,npc,trade)
 	       player:setRank(6)
 		   player:setCharVar("WINDY_RANK",1)
 		   player:setCharVar("MissionStatus",4)
+		   player:addKeyItem(xi.keyItem.LIMIT_BREAKER)
 		elseif player:getNation() == xi.nation.SANDORIA then 
 	       player:setRank(6)
 		   player:setCharVar("SANDY_RANK",1)
 		   player:setCharVar("MissionStatus",4)
+		   player:addKeyItem(xi.keyItem.LIMIT_BREAKER)
 		elseif player:getNation() == xi.nation.BASTOK then 
 	       player:setRank(6)
 		   player:setCharVar("BASTOK_RANK",1)
+		   player:addKeyItem(xi.keyItem.LIMIT_BREAKER)
 		   player:setCharVar("MissionStatus",4)
 		end	
 end
