@@ -1,6 +1,6 @@
 -- Abyssea NM mixin (for non-force popped NMs)
 -- Customization:
-
+--[[
 require("scripts/globals/mixins")
 require("scripts/globals/abyssea")
 
@@ -72,3 +72,4 @@ g_mixins.abyssea_nm = function(abysseaMob)
 end
 
 return g_mixins.abyssea_nm
+]]--
