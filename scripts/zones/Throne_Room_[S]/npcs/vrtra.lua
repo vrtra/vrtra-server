@@ -29,7 +29,6 @@ local spell_table = {
 405,406,408,409,410,412,414,415,419,420,421,422,424,425,426,427,428,429,430,431,432,329,327,
 433,434,435,436,437,438,439,440,441,442,443,444,445,454,455,456,457,458,459,460,461,843,330,
 462,463,464,465,466,467,477,845,841,205,207,209,211,213,215,25,232,79,80,107,322,325,328,331
-
 }
 
 entity.onTrigger = function(player, npc)
@@ -48,18 +47,18 @@ entity.onTrigger = function(player, npc)
 				function(playerArg)
                     local has_all_spells = true
                     for i = 1, #spell_table, 1 do
-                        if playerArg:hasSpell(spell_table[i]) == false then
+                        if player:hasSpell(spell_table[i]) == false then
                            has_all_spells = false
                         end
-                        if has_all_spells then
-                           player:PrintToPlayer(string.format("Vrtra : You have all spells already, get out of here!"), 21)
-                        else
-                            for i = 1, #spell_table, 1 do
-                              playerArg:addSpell(spell_table[i], true, true)
-                            end
-                            playerArg:PrintToPlayer(string.format("Vrtra : You now have all spells learned! Zone to see them in your spell list."), 21)
-                        end
 					end
+                    if has_all_spells then
+                        player:PrintToPlayer(string.format("Vrtra : You have all spells already, get out of here!"), 21)
+                    elseif has_all_spells == false then
+                        for i = 1, #spell_table, 1 do
+                            player:addSpell(spell_table[i], true, true)
+                        end
+                        player:PrintToPlayer(string.format("Vrtra : You now have all spells learned! Zone to see them in your spell list."), 21)
+                    end
 				end,
             },
             {
