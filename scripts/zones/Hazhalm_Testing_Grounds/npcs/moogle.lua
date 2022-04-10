@@ -7,7 +7,7 @@ require("scripts/globals/status")
 local entity = {}
 
 entity.onTrigger = function(player, npc)
-    if GetMobByID(17097716):isEngaged() == false and
+    if GetMobByID(17097716):isSpawned() == false and
 	playerArg:getMainLvl() > 79 and 
 	playerArg:getCharVar("Odin_Ready") == 1 and 
 	playerArg:getCurrentMission(TOAU) == xi.mission.id.toau.ETERNAL_MERCENARY then
