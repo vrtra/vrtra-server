@@ -4,7 +4,20 @@ require("scripts/settings/main")
 local entity = {}
 require("scripts/globals/status")
 
-
+function vrtraDialog(player,npc)  
+		player:PrintToPlayer(string.format("Vrtra : RaaawRRRR!"), 21)
+		player:PrintToPlayer(string.format("   Welcome to Vrtra, %s!",player:getName()), 21)
+		player:PrintToPlayer(string.format("   I guard this realm! Trade me 10,000 Gil to learn all spells, open all outposts and unlock advanced jobs."), 21)
+		player:PrintToPlayer(string.format("   I am surrounded by my minions, who are tasked to aid you with different quests and needs!"), 21)
+		player:PrintToPlayer(string.format("   To your left, you will see all of Vrtra's Custom NPCs for Quests and Battles. Speak to them for more information!"), 21)
+		player:PrintToPlayer(string.format("   And to your right, we have the custom NPCs for crafting materials and synthesis support."), 21)
+		player:PrintToPlayer(string.format("   The big ogre in front of me acts as our local Moogle. He functions just like the Moogle in your Mog House!"), 21)
+		player:PrintToPlayer(string.format("   Lastly, speak to the conflux ahead of me to the west to teleport to your home nation or your last location."), 21)
+		player:PrintToPlayer(string.format("   If you have any questions just ask for one of Vrtra's administators or join our Discord server!"), 21)
+		player:PrintToPlayer(string.format("   In addition, all information can be found on our Vrtra Wikia page!"), 21)
+		player:PrintToPlayer(string.format("   Be warned adventurer, if we meet in the open world, I am not nearly as friendly as I am now!"), 21)
+		player:PrintToPlayer(string.format("   RaaaaaaaaaaaaaaawRRRRRRRRR!!!!"), 21)
+end
 
 
 function vrtraQuestTrigger(player, npc)
