@@ -15,5 +15,7 @@ function onTrigger(player)
 
         };
          xi.shop.general(player, stock_1)
+	else
+	    player:PrintToPlayer("You can't use this command noob")
 	end
 end
