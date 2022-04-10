@@ -1,4 +1,4 @@
---[[ Dynamis procs mixin
+-- Dynamis procs mixin
 
 require("scripts/globals/mixins")
 require("scripts/globals/dynamis")
@@ -89,4 +89,3 @@ g_mixins.dynamis_beastmen = function(dynamisBeastmenMob)
 end
 
 return g_mixins.dynamis_beastmen
-]]-- 

@@ -5,7 +5,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Throne_Room_[S]/IDs")
 local entity = {}
-require("scripts/globals/vrtraQuests")
+require("scripts/globals/shop")
 require("scripts/globals/keyitems")
 
 local spell_table = {
@@ -29,55 +29,50 @@ local spell_table = {
 405,406,408,409,410,412,414,415,419,420,421,422,424,425,426,427,428,429,430,431,432,329,327,
 433,434,435,436,437,438,439,440,441,442,443,444,445,454,455,456,457,458,459,460,461,843,330,
 462,463,464,465,466,467,477,845,841,205,207,209,211,213,215,25,232,79,80,107,322,325,328,331
+
 }
 
-entity.onTrigger = function(player, npc)
 
-    local menu =
-    {
-        title = "Vrtra : RaaawRRRR!",
-        onStart = function(playerArg)
-            -- NOTE: This could be used to lock the player in place
-            -- playerArg:PrintToPlayer("Teleport Menu", xi.msg.channel.NS_SAY)
-        end,
-        options =
-        {
-            {
-                "Add All Spells",
-				function(playerArg)
-                    local has_all_spells = true
-                    for i = 1, #spell_table, 1 do
-                        if player:hasSpell(spell_table[i]) == false then
-                           has_all_spells = false
-                        end
-					end
-                    if has_all_spells then
-                        player:PrintToPlayer(string.format("Vrtra : You have all spells already, get out of here!"), 21)
-                    elseif has_all_spells == false then
-                        for i = 1, #spell_table, 1 do
-                            player:addSpell(spell_table[i], true, true)
-                        end
-                        player:PrintToPlayer(string.format("Vrtra : You now have all spells learned! Zone to see them in your spell list."), 21)
-                    end
-				end,
-            },
-            {
-                "Hear an explaination",
-                function(playerArg)
-                    vrtraDialog(player,npc)
-                end,
-            },
-        },
-        onCancelled = function(playerArg)
-        --    playerArg:PrintToPlayer("Teleport Menu Cancelled", xi.msg.channel.NS_SAY)
-        end,
-        onEnd = function(playerArg)
-            -- NOTE: This could be used to release a locked player,
-            -- playerArg:PrintToPlayer("Have a safe trip!", xi.msg.channel.NS_SAY)
-        end,
-		
-    }
-    player:customMenu(menu)
+entity.onTrigger = function(player,npc)
+    
+	if  player:getVar('mounts') == 0 and player:hasKeyItem(xi.ki.RAPTOR_COMPANION) == false and player:hasKeyItem(xi.ki.CHOCOBO_LICENSE) == false then
+		player:PrintToPlayer(string.format("Vrtra : RaaawRRRR!"), 21)
+		player:PrintToPlayer(string.format("   Welcome to Vrtra, %s!",player:getName()), 21)
+		player:PrintToPlayer(string.format("   I guard this realm! Trade me 10,000 Gil to learn all spells, open all outposts and unlock advanced jobs."), 21)
+		player:PrintToPlayer(string.format("   I am surrounded by my minions, who are tasked to aid you with different quests and needs!"), 21)
+		player:PrintToPlayer(string.format("   To your left, you will see all of Vrtra's Custom NPCs for Quests and Battles. Speak to them for more information!"), 21)
+		player:PrintToPlayer(string.format("   And to your right, we have the custom NPCs for crafting materials and synthesis support."), 21)
+		player:PrintToPlayer(string.format("   The big ogre in front of me acts as our local Moogle. He functions just like the Moogle in your Mog House!"), 21)
+		player:PrintToPlayer(string.format("   Lastly, speak to the conflux ahead of me to the west to teleport to your home nation or your last location."), 21)
+		player:PrintToPlayer(string.format("   If you have any questions just ask for one of Vrtra's administators or join our Discord server!"), 21)
+		player:PrintToPlayer(string.format("   In addition, all information can be found on our Vrtra Wikia page!"), 21)
+		player:PrintToPlayer(string.format("   Be warned adventurer, if we meet in the open world, I am not nearly as friendly as I am now!"), 21)
+		player:PrintToPlayer(string.format("   RaaaaaaaaaaaaaaawRRRRRRRRR!!!!"), 21)
+	else
+		player:PrintToPlayer(string.format("Vrtra : RaaawRRRR!"), 21)
+		player:PrintToPlayer(string.format("   Welcome to Vrtra, %s!",player:getName()), 21)		
+    end
+end
+
+entity.onTrade = function(player, npc, trade)
+    local has_all_spells = true
+        for i = 1, #spell_table, 1 do
+        if (player:hasSpell(spell_table[i]) == false) then
+            has_all_spells = false
+        end
+    end
+    if (has_all_spells) then
+        player:PrintToPlayer(string.format("Vrtra : You have all spells already, get out of here!"), 21)
+    elseif (trade:hasItemQty(65535, 10000) and trade:getItemCount() == 1) then
+        printf("correct item and amount")
+        for i = 1, #spell_table, 1 do
+            player:addSpell(spell_table[i], true, true)
+        end
+        printf("completing trade")
+        player:tradeComplete()
+        player:PrintToPlayer(string.format("Vrtra : You now have all spells learned! Zone to see them in your spell list."), 21)
+    end
+
 end
 
 return entity
