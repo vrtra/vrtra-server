@@ -45,20 +45,22 @@ entity.onTrigger = function(player, npc)
         {
             {
                 "Add All Spells",
+				function(playerArg)
                     local has_all_spells = true
                     for i = 1, #spell_table, 1 do
-                        if player:hasSpell(spell_table[i]) == false then
+                        if playerArg:hasSpell(spell_table[i]) == false then
                            has_all_spells = false
                         end
                         if has_all_spells then
                            player:PrintToPlayer(string.format("Vrtra : You have all spells already, get out of here!"), 21)
                         else
                             for i = 1, #spell_table, 1 do
-                              player:addSpell(spell_table[i], true, true)
+                              playerArg:addSpell(spell_table[i], true, true)
                             end
-                            player:PrintToPlayer(string.format("Vrtra : You now have all spells learned! Zone to see them in your spell list."), 21)
+                            playerArg:PrintToPlayer(string.format("Vrtra : You now have all spells learned! Zone to see them in your spell list."), 21)
                         end
 					end
+				end,
             },
             {
                 "Hear an explaination",
