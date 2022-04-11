@@ -21,51 +21,51 @@ function onTrigger(player, teleport)
         options =
         {
 		    {
-                "Your Homepoint",
+                "My Home Point",
                 function(playerArg)
-                    playerArg:PrintToPlayer("Teleport to Vrtra Custom Zone Processing", xi.msg.channel.NS_SAY)
+                    playerArg:PrintToPlayer("Teleport to your Home Point processing", xi.msg.channel.NS_SAY)
                     playerArg:warp()
                 end,
             },	
             {
-                "Vrtra Custom Zone",
+                "Vrtra Custom zone",
                 function(playerArg)
-                    playerArg:PrintToPlayer("Teleport to Vrtra Custom Zone Processing", xi.msg.channel.NS_SAY)
+                    playerArg:PrintToPlayer("Teleport to Vrtra Custom zone processing", xi.msg.channel.NS_SAY)
                     playerArg:setPos(88.1, -5.75, 0, 130, 156)
                 end,
             },		
             {
-                "Bastok",
+                "Bastok Mines",
                 function(playerArg)
-                    playerArg:PrintToPlayer("Teleport to Bastok Processing", xi.msg.channel.NS_SAY)
+                    playerArg:PrintToPlayer("Teleport to Bastok Mines processing", xi.msg.channel.NS_SAY)
                     playerArg:setPos(116, 0, -71, 127, 234)
                 end,
             },
             {
-                "Sandy",
+                "Northern San d'Oria",
                 function(playerArg)
-                    playerArg:PrintToPlayer("Teleport to Sandy Processing", xi.msg.channel.NS_SAY)
+                    playerArg:PrintToPlayer("Teleport to Northern San d'Oria processing", xi.msg.channel.NS_SAY)
                     playerArg:setPos(130, 0, -3, 160, 231)
                 end,
             },
             {
-                "Windy",
+                "Port Windurst",
                 function(playerArg)
-                    playerArg:PrintToPlayer("Teleport to Windy Processing", xi.msg.channel.NS_SAY)
+                    playerArg:PrintToPlayer("Teleport to Port Windurst processing", xi.msg.channel.NS_SAY)
                     playerArg:setPos(-257, -5, -118, 0, 239)
                 end,
             },
             {
-                "RuLude Gardens",
+                "Ru'Lude Gardens",
                 function(playerArg)
-                    playerArg:PrintToPlayer("Teleport to Ru'Lude Gardens Processing", xi.msg.channel.NS_SAY)
+                    playerArg:PrintToPlayer("Teleport to Ru'Lude Gardens processing", xi.msg.channel.NS_SAY)
                     playerArg:setPos(0, 3, 118, 65, 243)
                 end,
             },
             {
                 "Whitegate",
                 function(playerArg)
-                    playerArg:PrintToPlayer("Teleport to Whitegate Processing", xi.msg.channel.NS_SAY)
+                    playerArg:PrintToPlayer("Teleport to Aht Urhgan Whitegate processing", xi.msg.channel.NS_SAY)
                     playerArg:setPos(0, 0, 14, 60, 50)
                 end,
             },			
