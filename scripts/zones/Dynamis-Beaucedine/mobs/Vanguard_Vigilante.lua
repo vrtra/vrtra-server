@@ -3,8 +3,8 @@
 --  Mob: Vanguard Vigilante
 -----------------------------------
 mixins =
+mixins =
 {
-    require("scripts/mixins/dynamis_beastmen"),
     require("scripts/mixins/job_special")
 }
 local ID = require("scripts/zones/Dynamis-Beaucedine/IDs")

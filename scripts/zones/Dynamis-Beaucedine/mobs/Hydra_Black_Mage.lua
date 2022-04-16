@@ -3,8 +3,8 @@
 --  Mob: Hydra Black Mage
 -----------------------------------
 mixins =
+mixins =
 {
-    require("scripts/mixins/dynamis_beastmen"),
     require("scripts/mixins/job_special")
 }
 -----------------------------------

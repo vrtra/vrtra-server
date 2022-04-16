@@ -3,8 +3,8 @@
 --  Mob: Vanguard Constable
 -----------------------------------
 mixins =
+mixins =
 {
-    require("scripts/mixins/dynamis_beastmen"),
     require("scripts/mixins/job_special")
 }
 local ID = require("scripts/zones/Dynamis-Buburimu/IDs")
