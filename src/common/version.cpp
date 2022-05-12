@@ -2,7 +2,7 @@
 
 const char* version::GetGitSha()
 {
-    return "16a66a1da36957c5aeadde0061a66ad96a9bb0e3-dirty";
+    return "fd959fec12cee6564d0a7dc57c257d33f73ff415";
 }
 
 const char* version::GetGitBranch()
@@ -12,10 +12,10 @@ const char* version::GetGitBranch()
 
 const char* version::GetGitDate()
 {
-    return "Mon Apr 11 01:44:45 2022";
+    return "Thu Apr 14 22:26:38 2022";
 }
 
 const char* version::GetGitCommitSubject()
 {
-    return "Added names to Teleport command";
+    return "Merge branch 'base' of https://github.com/vrtra/vrtra_server into base";
 }
