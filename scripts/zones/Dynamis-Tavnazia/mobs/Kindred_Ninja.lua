@@ -3,7 +3,6 @@
 --  Mob: Kindred Ninja
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

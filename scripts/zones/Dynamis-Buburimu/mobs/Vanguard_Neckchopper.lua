@@ -3,7 +3,6 @@
 --  Mob: Vanguard Neckchopper
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

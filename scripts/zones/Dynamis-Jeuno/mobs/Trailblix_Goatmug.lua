@@ -3,7 +3,6 @@
 --  Mob: Trailblix Goatmug
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

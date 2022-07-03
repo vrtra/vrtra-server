@@ -3,7 +3,6 @@
 --  Mob: Wyrmwix Snakespecs
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

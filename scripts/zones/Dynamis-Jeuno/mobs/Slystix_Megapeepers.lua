@@ -3,7 +3,6 @@
 --  Mob: Slystix Megapeepers
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Kindred Thief
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

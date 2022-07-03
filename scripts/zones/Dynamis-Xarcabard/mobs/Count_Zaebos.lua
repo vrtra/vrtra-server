@@ -3,7 +3,6 @@
 --  Mob: Count Zaebos
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

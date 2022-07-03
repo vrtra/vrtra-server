@@ -3,7 +3,6 @@
 --  Mob: Ultrasonic Zeknajak
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

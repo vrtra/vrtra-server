@@ -3,7 +3,6 @@
 --  Mob: NaHya Floodmaker
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

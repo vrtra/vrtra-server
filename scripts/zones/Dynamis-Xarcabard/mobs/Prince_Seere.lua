@@ -3,7 +3,6 @@
 --  Mob: Prince Seere
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

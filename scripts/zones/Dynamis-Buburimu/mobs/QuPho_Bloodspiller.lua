@@ -3,7 +3,6 @@
 --  Mob: QuPho Bloodspiller
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Snypestix Eaglebeak
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

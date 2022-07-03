@@ -3,7 +3,6 @@
 --  Mob: Karashix Swollenskull
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

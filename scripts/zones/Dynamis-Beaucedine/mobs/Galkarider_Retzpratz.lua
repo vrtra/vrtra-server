@@ -3,7 +3,6 @@
 --  Mob: Galkarider Retzpratz
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

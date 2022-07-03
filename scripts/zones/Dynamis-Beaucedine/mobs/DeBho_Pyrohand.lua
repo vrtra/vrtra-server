@@ -3,7 +3,6 @@
 --  Mob: DeBho Pyrohand
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

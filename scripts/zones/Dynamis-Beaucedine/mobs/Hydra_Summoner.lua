@@ -3,7 +3,6 @@
 --  Mob: Hydra Summoner
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

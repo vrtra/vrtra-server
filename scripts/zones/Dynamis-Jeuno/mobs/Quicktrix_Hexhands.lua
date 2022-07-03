@@ -3,7 +3,6 @@
 --  Mob: Quicktrix Hexhands
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Vanguard Prelate
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

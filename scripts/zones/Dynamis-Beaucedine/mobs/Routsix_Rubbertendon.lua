@@ -3,7 +3,6 @@
 --  Mob: Routsix Rubbertendon
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

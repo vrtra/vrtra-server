@@ -3,7 +3,6 @@
 --  Mob: Duke Gomory
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

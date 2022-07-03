@@ -3,7 +3,6 @@
 --  Mob: Slinkix Trufflesniff
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

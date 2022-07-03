@@ -3,7 +3,6 @@
 --  Mob: JiFhu Infiltrator
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Kindred Samurai
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

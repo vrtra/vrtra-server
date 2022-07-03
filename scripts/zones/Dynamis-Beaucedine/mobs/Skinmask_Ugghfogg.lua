@@ -3,7 +3,6 @@
 --  Mob: Skinmask Ugghfogg
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

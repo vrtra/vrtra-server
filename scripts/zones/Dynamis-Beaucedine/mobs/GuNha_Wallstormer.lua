@@ -3,7 +3,6 @@
 --  Mob: GuNha Wallstormer
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

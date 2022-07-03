@@ -1,7 +1,7 @@
 -----------------------------------
 -- Area: Upper Jeuno
 --  NPC: Hunt Master
--- Used in Daily Hunts
+-- Used in  Hunts
 -----------------------------------
 local ID = require("scripts/zones/Throne_Room_[S]/IDs")
 local entity = {}
@@ -90,12 +90,12 @@ entity.rollAugmented = function(player, id, tier)
         end
     end	
 	
-    local weekPoints = player:getVar("Hunt_WeekPoints")
+    local weekPoints = player:getCharVar("Hunt_WeekPoints")
 	
-    if (player:getFreeSlotsCount() >= 1) then
+    if  player:getFreeSlotsCount() >= 1 then
         player:delItem(id, 1)
-		player:tradeComplete()
-		player:setVar("Hunt_WeekPoints",(weekPoints - 2))	
+		player:tradeComplete()	
+		player:setCharVar("Hunt_WeekPoints",(weekPoints - 2))
         player:addItem(id, 1, aug1, v1, aug2, v2, aug3, v3)
         player:messageSpecial(ID.text.ITEM_OBTAINED, id)
     else
@@ -116,18 +116,6 @@ entity.getItemId = function(trade)
 end
 
 entity.onTrade = function(player, npc, trade)
-    local complete = player:getVar("HuntWeek_Active")
-    local weekPoints = player:getVar("Hunt_WeekPoints")
-   
-	if trade:hasItemQty(65535,1) and weekPoints > 4 and complete == 1 then 
-		player:setVar("HuntWeek_Active", 0)
-		player:setVar("Hunt_Week",0)
-		player:setVar("HuntWeek_Target",0)
-		player:setVar("Hunt_WeekPoints",(weekPoints - 5))
-		player:PrintToPlayer(string.format("Hunt Master: Weekly Hunt reset. You now have %s Weekly Hunt Points", player:getVar("Hunt_WeekPoints")), 21)  
-	else 
-	    player:PrintToPlayer(string.format("Daily Hunt Master : You do not have enough Daily Hunt Points to purchase that item."), 21)
-	end
 
     local id = getItemId(trade)
     if id == -1 then return false end
@@ -135,11 +123,12 @@ entity.onTrade = function(player, npc, trade)
     for k,tier in pairs(augTiers) do
         if npcUtil.tradeHas(trade, {id, tier.stone}) 
 		and trade:getItemCount() == 2 
-		and player:getVar("Hunt_WeekPoints") > 1
+		and player:getCharVar("Hunt_WeekPoints") > 1
 		then
             rollAugmented(player, id, tier)
             break
-        end
+ 
+		end
     end
 end
 
@@ -148,17 +137,17 @@ entity.onTrigger = function(player,npc)
 	-- Weekly Settings --
 	local weektarget = weekhunt[math.random(1,#weekhunt)]
 	local realweek = tonumber(os.date("%W"))
-	local wtarg = GetMobByID(player:getVar("HuntWeek_Target"))
+	local wtarg = GetMobByID(player:getCharVar("HuntWeek_Target"))
 
 	-- Set Random Weekly Reward for player --
 	local weekly_reward = reward_table_weekly[math.random(1,#reward_table_weekly)]
 
 	-- Weekly Vars and NPC interactions --
 	if player:getMainLvl() > 45 then
-	if (realweek ~= player:getVar("Hunt_Week") and player:getVar("HuntWeek_Active") == 0) then
-		player:setVar("HuntWeek_Active", 1)
-		player:setVar("Hunt_Week",realweek)
-		player:setVar("HuntWeek_Target",weektarget)
+	if (realweek ~= player:getCharVar("Hunt_Week") and player:getCharVar("HuntWeek_Active") == 0) then
+		player:setCharVar("HuntWeek_Active", 1)
+		player:setCharVar("Hunt_Week",realweek)
+		player:setCharVar("HuntWeek_Target",weektarget)
 		player:PrintToPlayer(string.format("Hunt Master: I am in charge of all your hunting activities!"), 21)
 		player:PrintToPlayer(string.format("Hunt Master: All you gotta do is hunt the targets I set you. Easy peasy, right?"), 21)
 		player:PrintToPlayer(string.format("Hunt Master: I see you do not have a weekly hunt currently active, so allow me to give you one!"), 21)
@@ -166,13 +155,13 @@ entity.onTrigger = function(player,npc)
 	end	
 		
 	if
-	player:getVar("HuntWeek_Completed") == 0 then
-		if player:getVar("HuntWeek_Active") == 1 then
+	player:getCharVar("HuntWeek_Completed") == 0 then
+		if player:getCharVar("HuntWeek_Active") == 1 then
 		   player:PrintToPlayer(string.format("Hunt Master: Your Weekly Hunt target is %s", wtarg:getName()), 21)
 		end	
 	end		
 	if
-		(realweek == player:getVar("Hunt_Week") and player:getVar("HuntWeek_Active") == 0) then
+		(realweek == player:getCharVar("Hunt_Week") and player:getCharVar("HuntWeek_Active") == 0) then
 			player:PrintToPlayer(string.format("Hunt Master: You've already completed your weekly hunt! Come back next week!"), 21)
 			player:PrintToPlayer(string.format("Hunt Master: Hunts reset Monday 12am CST"), 21)
 			player:PrintToPlayer(string.format("Hunt Master: You can augment your Hunt Rewards for 2 Weekly Hunt Points."), 21)
@@ -182,15 +171,15 @@ entity.onTrigger = function(player,npc)
 			
 	end
 	
-	if player:getVar("HuntWeek_Completed") == 1 then
+	if player:getCharVar("HuntWeek_Completed") == 1 then
 		if player:getFreeSlotsCount() >= 1 then		   
-		   player:setVar("Hunt_WeekPoints",(player:getVar("Hunt_WeekPoints") + 1))
-		   player:setVar("HuntWeek_Active", 0)
-		   player:setVar("HuntWeek_Completed",0)
-		   player:setVar("HuntWeek_Target", 0)
+		   player:setCharVar("Hunt_WeekPoints",(player:getCharVar("Hunt_WeekPoints") + 1))
+		   player:setCharVar("HuntWeek_Active", 0)
+		   player:setCharVar("HuntWeek_Completed",0)
+		   player:setCharVar("HuntWeek_Target", 0)
 		   player:PrintToPlayer(string.format("Hunt Master: Well done, heh! You took that monster down with great skill!"), 21)
 		   player:PrintToPlayer(string.format("Hunt Master: I'll add this one to your total number of kills and give you some points, yeah?"), 21)
-		   player:PrintToPlayer(string.format("Hunt Master: Says here you now currently have %s Hunt Points.", player:getVar("Hunt_WeekPoints")), 21)
+		   player:PrintToPlayer(string.format("Hunt Master: Says here you now currently have %s Hunt Points.", player:getCharVar("Hunt_WeekPoints")), 21)
 	       player:PrintToPlayer(string.format("Hunt Master: You can augment your Hunt Rewards for 5 Weekly Hunt Points."), 21)
 	       player:PrintToPlayer(string.format("Hunt Master: Trade me one of your rewards plus a Behemoth Hide for str/dex+2 attack +2 augments."), 21)
 		   player:PrintToPlayer(string.format("Hunt Master: Or trade me one of your hunt rewards and a Damascene Cloth for int/mnd +2 magic acc +2 augments."), 21)

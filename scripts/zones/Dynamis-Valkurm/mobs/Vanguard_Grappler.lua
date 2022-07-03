@@ -3,7 +3,6 @@
 --  Mob: Vanguard Grappler
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

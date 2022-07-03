@@ -3,7 +3,6 @@
 --  Mob: Kikklix Longlegs
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

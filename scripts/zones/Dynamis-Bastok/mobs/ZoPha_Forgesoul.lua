@@ -3,7 +3,6 @@
 --  Mob: Zo'Pha Forgesoul
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

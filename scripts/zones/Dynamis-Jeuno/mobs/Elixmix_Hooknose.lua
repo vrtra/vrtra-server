@@ -3,7 +3,6 @@
 --  Mob: Elixmix Hooknose
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

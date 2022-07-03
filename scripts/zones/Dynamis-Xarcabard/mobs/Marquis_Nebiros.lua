@@ -3,7 +3,6 @@
 --  Mob: Marquis Nebiros
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

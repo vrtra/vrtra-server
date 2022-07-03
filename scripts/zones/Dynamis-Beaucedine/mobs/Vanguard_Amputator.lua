@@ -3,7 +3,6 @@
 --  Mob: Vanguard Amputator
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

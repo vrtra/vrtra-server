@@ -3,7 +3,6 @@
 --  Mob: Vanguard Hitman
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

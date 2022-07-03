@@ -3,7 +3,6 @@
 --  Mob: Vanguard Defender
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

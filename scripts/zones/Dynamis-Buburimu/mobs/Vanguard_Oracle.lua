@@ -3,7 +3,6 @@
 --  Mob: Vanguard Oracle
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

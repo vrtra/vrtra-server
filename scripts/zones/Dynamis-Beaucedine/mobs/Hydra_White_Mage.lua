@@ -3,7 +3,6 @@
 --  Mob: Hydra White Mage
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

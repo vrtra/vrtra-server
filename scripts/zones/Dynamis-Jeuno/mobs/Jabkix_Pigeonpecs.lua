@@ -3,7 +3,6 @@
 --  Mob: Jabkix Pigeonpecs
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

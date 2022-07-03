@@ -3,7 +3,6 @@
 --  Mob: Prowlox Barrelbelly
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

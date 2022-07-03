@@ -3,7 +3,6 @@
 --  Mob: TaHyu Gallanthunter
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

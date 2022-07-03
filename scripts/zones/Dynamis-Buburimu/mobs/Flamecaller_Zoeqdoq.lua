@@ -3,7 +3,6 @@
 --  Mob: Flamecaller Zoeqdoq
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

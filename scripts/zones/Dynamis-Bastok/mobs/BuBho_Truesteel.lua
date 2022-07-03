@@ -3,7 +3,6 @@
 --  Mob: Bu'Bho Truesteel
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

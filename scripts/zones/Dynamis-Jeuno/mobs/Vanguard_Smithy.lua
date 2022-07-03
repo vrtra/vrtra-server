@@ -3,7 +3,6 @@
 --  Mob: Vanguard Smithy
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

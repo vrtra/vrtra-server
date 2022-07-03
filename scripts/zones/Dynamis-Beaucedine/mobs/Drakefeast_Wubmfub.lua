@@ -3,7 +3,6 @@
 --  Mob: Drakefeast Wubmfub
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

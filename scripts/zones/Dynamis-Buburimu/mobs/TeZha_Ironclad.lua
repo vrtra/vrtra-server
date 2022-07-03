@@ -3,7 +3,6 @@
 --  Mob: TeZha Ironclad
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

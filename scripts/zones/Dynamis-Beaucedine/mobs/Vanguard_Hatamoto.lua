@@ -3,7 +3,6 @@
 --  Mob: Vanguard Hatamoto
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

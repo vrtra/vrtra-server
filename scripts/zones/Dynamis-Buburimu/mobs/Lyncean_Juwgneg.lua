@@ -3,7 +3,6 @@
 --  Mob: Lyncean Juwgneg
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

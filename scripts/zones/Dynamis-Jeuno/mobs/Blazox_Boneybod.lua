@@ -3,7 +3,6 @@
 --  Mob: Blazox Boneybod
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

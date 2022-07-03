@@ -3,7 +3,6 @@
 --  Mob: Vanguard Gutslasher
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

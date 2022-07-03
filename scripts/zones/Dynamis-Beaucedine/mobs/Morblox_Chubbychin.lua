@@ -3,7 +3,6 @@
 --  Mob: Morblox Chubbychin
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

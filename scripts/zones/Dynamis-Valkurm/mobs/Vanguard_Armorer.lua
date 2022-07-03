@@ -3,7 +3,6 @@
 --  Mob: Vanguard Armorer
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

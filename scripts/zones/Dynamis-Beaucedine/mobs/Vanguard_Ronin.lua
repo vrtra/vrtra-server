@@ -3,7 +3,6 @@
 --  Mob: Vanguard Ronin
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

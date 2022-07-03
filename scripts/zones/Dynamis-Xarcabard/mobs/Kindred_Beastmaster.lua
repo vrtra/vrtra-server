@@ -3,7 +3,6 @@
 --  Mob: Kindred Beastmaster
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

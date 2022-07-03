@@ -3,7 +3,6 @@
 --  Mob: Hydra Monk
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

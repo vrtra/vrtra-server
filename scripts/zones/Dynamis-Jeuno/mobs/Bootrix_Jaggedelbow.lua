@@ -3,7 +3,6 @@
 --  Mob: Bootrix Jaggedelbow
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

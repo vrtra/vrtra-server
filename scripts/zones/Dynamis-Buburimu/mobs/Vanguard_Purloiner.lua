@@ -3,7 +3,6 @@
 --  Mob: Vanguard Purloiner
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Brewnix Bittypupils
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

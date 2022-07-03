@@ -3,7 +3,6 @@
 --  Mob: Gu'Nhi Noondozer
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

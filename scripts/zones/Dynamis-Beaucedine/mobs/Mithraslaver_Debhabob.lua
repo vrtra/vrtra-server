@@ -3,7 +3,6 @@
 --  Mob: Mithraslaver Debhabob
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

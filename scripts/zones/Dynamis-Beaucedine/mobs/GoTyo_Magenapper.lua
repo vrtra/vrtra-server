@@ -3,7 +3,6 @@
 --  Mob: GoTyo Magenapper
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

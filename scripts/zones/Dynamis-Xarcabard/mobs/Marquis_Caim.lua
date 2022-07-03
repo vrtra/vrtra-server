@@ -3,7 +3,6 @@
 --  Mob: Marquis Caim
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

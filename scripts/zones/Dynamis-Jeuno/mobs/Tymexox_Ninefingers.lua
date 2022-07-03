@@ -3,7 +3,6 @@
 --  Mob: Tymexox Ninefingers
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

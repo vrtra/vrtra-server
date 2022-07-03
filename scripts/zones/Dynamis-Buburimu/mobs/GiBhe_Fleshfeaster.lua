@@ -3,7 +3,6 @@
 --  Mob: GiBhe Fleshfeaster
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

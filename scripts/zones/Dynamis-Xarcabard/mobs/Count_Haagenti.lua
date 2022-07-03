@@ -3,7 +3,6 @@
 --  Mob: Count Haagenti
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

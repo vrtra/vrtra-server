@@ -3,7 +3,6 @@
 --  Mob: Swypestix Tigershins
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

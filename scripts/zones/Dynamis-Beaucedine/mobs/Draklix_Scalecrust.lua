@@ -3,7 +3,6 @@
 --  Mob: Draklix Scalecrust
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

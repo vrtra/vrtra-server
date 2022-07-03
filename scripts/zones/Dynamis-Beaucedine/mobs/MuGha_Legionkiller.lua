@@ -3,7 +3,6 @@
 --  Mob: MuGha Legionkiller
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

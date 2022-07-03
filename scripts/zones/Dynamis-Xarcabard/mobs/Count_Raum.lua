@@ -3,7 +3,6 @@
 --  Mob: Count Raum
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Spinalsucker Galflmall
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

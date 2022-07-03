@@ -3,7 +3,6 @@
 --  Mob: Hydra Ranger
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

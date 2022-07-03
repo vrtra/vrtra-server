@@ -3,7 +3,6 @@
 --  Mob: Tufflix Loglimbs
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

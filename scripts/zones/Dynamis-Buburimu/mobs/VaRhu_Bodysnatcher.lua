@@ -3,7 +3,6 @@
 --  Mob: VaRhu Bodysnatcher
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

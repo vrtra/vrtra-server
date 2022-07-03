@@ -3,7 +3,6 @@
 --  Mob: Tocktix Thinlids
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

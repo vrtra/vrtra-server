@@ -3,7 +3,6 @@
 --  Mob: Elvaansticker Bxafraff
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

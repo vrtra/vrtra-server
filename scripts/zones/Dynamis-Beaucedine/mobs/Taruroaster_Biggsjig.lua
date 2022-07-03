@@ -3,7 +3,6 @@
 --  Mob: Taruroaster Biggsjig
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

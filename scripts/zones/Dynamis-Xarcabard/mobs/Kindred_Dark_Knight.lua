@@ -3,7 +3,6 @@
 --  Mob: Kindred Dark Knight
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

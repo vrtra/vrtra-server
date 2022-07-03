@@ -3,7 +3,6 @@
 --  Mob: NuBhi Spiraleye
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

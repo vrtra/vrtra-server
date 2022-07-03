@@ -3,7 +3,6 @@
 --  Mob: Hydra Thief
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

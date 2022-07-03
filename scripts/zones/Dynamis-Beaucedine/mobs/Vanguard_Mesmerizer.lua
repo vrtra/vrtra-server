@@ -3,7 +3,6 @@
 --  Mob: Vanguard Mesmerizer
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

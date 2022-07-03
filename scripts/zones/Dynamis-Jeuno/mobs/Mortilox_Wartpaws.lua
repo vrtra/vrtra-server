@@ -3,7 +3,6 @@
 --  Mob: Mortilox Wartpaws
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

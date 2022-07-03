@@ -3,7 +3,6 @@
 --  Mob: Marquis Sabnak
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

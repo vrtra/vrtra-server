@@ -3,7 +3,6 @@
 --  Mob: Vanguard Pitfighter
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

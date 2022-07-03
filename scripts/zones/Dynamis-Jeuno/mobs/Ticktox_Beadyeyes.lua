@@ -3,7 +3,6 @@
 --  Mob: Ticktox Beadyeyes
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

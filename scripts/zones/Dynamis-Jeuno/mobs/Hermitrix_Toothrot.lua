@@ -3,7 +3,6 @@
 --  Mob: Hermitrix Toothrot
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

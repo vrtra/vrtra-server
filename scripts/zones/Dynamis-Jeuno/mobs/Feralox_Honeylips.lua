@@ -3,7 +3,6 @@
 --  Mob: Feralox Honeylips
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Cloktix Longnail
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

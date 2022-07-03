@@ -3,7 +3,6 @@
 --  Mob: Hydra Samurai
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Gibberox Pimplebeak
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

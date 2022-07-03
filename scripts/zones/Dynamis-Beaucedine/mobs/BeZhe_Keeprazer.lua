@@ -3,7 +3,6 @@
 --  Mob: BeZhe Keeprazer
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

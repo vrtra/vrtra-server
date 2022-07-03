@@ -3,7 +3,6 @@
 --  Mob: Duke Haures
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Buffrix Eargone
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

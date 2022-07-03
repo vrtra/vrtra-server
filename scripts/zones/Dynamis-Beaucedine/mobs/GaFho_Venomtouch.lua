@@ -3,7 +3,6 @@
 --  Mob: GaFho Venomtouch
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

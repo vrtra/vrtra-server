@@ -3,7 +3,6 @@
 --  Mob: MiRhe Whisperblade
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

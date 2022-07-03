@@ -3,7 +3,6 @@
 --  Mob: Kindred Red Mage
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

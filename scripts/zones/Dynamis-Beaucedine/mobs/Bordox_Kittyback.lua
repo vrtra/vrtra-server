@@ -3,7 +3,6 @@
 --  Mob: Bordox Kittyback
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -68,8 +68,6 @@ entity.onMobInitialize = function(mob)
 end
 
 entity.onMobSpawn = function(mob)
-
-    onMobRoam(mob)
 	mob:setMod(xi.mod.SLEEPRES, 100)
 	mob:setMod(xi.mod.PARALYZERES, 10)
 	mob:setMod(xi.mod.BINDRES, 40)
@@ -78,8 +76,7 @@ entity.onMobSpawn = function(mob)
 	mob:setMod(xi.mod.SLOWRES, 10)
 	mob:setMod(xi.mod.BLINDRES, 10)
 	mob:setMod(xi.mod.SILENCERES, 10)
-	mob:setMod(xi.mod.REGAIN, 10)
-	
+	mob:setMod(xi.mod.REGAIN, 10)	
 end
 
 entity.onPath = function(mob)

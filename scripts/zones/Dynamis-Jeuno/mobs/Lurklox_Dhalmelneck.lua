@@ -3,7 +3,6 @@
 --  Mob: Lurklox Dhalmelneck
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

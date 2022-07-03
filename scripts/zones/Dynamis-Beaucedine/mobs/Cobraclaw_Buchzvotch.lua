@@ -3,7 +3,6 @@
 --  Mob: Cobraclaw Buchzvotch
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

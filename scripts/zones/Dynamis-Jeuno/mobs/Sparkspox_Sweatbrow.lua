@@ -3,7 +3,6 @@
 --  Mob: Sparkspox Sweatbrow
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

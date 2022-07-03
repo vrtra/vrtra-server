@@ -3,7 +3,6 @@
 --  Mob: SoZho Metalbender
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

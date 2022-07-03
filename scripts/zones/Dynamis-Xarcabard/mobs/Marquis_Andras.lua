@@ -3,7 +3,6 @@
 --  Mob: Marquis Andras
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

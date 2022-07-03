@@ -3,7 +3,6 @@
 --  Mob: Marquis Decarabia
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

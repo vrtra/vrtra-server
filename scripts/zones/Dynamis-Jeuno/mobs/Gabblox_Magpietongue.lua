@@ -3,7 +3,6 @@
 --  Mob: Gabblox Magpietongue
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

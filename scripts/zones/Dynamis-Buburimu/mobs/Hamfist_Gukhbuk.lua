@@ -3,7 +3,6 @@
 --  Mob: Hamfist Gukhbuk
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

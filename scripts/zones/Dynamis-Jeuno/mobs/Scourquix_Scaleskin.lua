@@ -3,7 +3,6 @@
 --  Mob: Scourquix Scaleskin
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

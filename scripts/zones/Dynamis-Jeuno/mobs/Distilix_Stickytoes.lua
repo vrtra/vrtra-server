@@ -3,7 +3,6 @@
 --  Mob: Distilix Stickytoes
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

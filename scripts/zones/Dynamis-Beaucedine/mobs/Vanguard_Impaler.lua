@@ -3,7 +3,6 @@
 --  Mob: Vanguard Impaler
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Hydra Beastmaster
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

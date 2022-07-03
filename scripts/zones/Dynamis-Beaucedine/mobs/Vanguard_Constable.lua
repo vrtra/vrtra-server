@@ -3,7 +3,6 @@
 --  Mob: Vanguard Constable
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

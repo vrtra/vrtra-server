@@ -3,7 +3,6 @@
 --  Mob: Va'Zhe Pummelsong
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

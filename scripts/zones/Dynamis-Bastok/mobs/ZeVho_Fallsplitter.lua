@@ -3,7 +3,6 @@
 --  Mob: Ze'Vho Fallsplitter
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

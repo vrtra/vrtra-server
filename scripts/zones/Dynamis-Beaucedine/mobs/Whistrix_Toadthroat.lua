@@ -3,7 +3,6 @@
 --  Mob: Whistrix Toadthroat
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

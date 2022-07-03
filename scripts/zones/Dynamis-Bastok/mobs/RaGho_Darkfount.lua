@@ -3,7 +3,6 @@
 --  Mob: Ra'Gho Darkfount
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

@@ -3,7 +3,6 @@
 --  Mob: Jeunoraider Gepkzip
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

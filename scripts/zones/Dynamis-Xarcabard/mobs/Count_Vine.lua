@@ -3,7 +3,6 @@
 --  Mob: Count Vine
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

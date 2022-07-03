@@ -3,7 +3,6 @@
 --  Mob: Droprix Granitepalms
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }

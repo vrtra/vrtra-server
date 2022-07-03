@@ -3,7 +3,6 @@
 --  Mob: Vanguard Minstrel
 -----------------------------------
 mixins =
-mixins =
 {
     require("scripts/mixins/job_special")
 }
