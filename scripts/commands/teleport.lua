@@ -68,7 +68,8 @@ function onTrigger(player, teleport)
                     playerArg:PrintToPlayer("Teleport to Aht Urhgan Whitegate processing", xi.msg.channel.NS_SAY)
                     playerArg:setPos(0, 0, 14, 60, 50)
                 end,
-            },			
+            },		
+		
         },
         onCancelled = function(playerArg)
             playerArg:PrintToPlayer("Teleport Menu Cancelled", xi.msg.channel.NS_SAY)
