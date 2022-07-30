@@ -31,6 +31,7 @@ function onTrigger(player)
                 function(playerArg)
                     playerArg:PrintToPlayer("Option 1 Selected", xi.msg.channel.NS_SAY)
                     playerArg:independentAnimation(playerArg, 251, 4) -- Hearts
+					playerArg:setPos(-0.135, 0.000, 22.880, 105, 244)
                 end,
             },
             {
@@ -41,7 +42,7 @@ function onTrigger(player)
                 end,
             },
             {
-                "Option 3: Lightbulb",
+                "Option 4: Lightbulb",
                 function(playerArg)
                     playerArg:PrintToPlayer("Option 3 Selected", xi.msg.channel.NS_SAY)
                     playerArg:independentAnimation(playerArg, 250, 4) -- Lightbulb

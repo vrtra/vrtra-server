@@ -10,6 +10,7 @@ local entity = {}
 
 entity.onMobInitialize = function(mob)
     mob:setMobMod(xi.mobMod.IDLE_DESPAWN, 180) -- 3 minutes
+    mob:setMobMod(xi.mobMod.LINK_RADIUS, 30)
 end
 
 entity.onMobSpawn = function(mob)

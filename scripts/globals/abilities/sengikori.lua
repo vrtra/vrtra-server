@@ -15,7 +15,8 @@ ability_object.onAbilityCheck = function(player, target, ability)
 end
 
 ability_object.onUseAbility = function(player, target, ability)
-    player:addStatusEffect(xi.effect.SENGIKORI, 12, 0, 60)
+    player:addStatusEffect(xi.effect.SENGIKORI, 1, 0, 5)
+
 end
 
 return ability_object

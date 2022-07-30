@@ -28,25 +28,26 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
     params.acc100 = 0.0 params.acc200 = 0.0 params.acc300 = 0.0
-    params.atk100 = 1; params.atk200 = 1; params.atk300 = 1
+    params.atk100 = 1; params.atk200 = 1; params.atk300 = 1;
 
     if xi.settings.main.USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.ftp100 = 5 params.ftp200 = 5 params.ftp300 = 5
         params.chr_wsc = 0.7
     end
 
-    -- Apply aftermath
-    xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
-
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-
-    if damage > 0 and not target:hasStatusEffect(xi.effect.WEIGHT) then
+ 	local wsPoints = player:getVar("MORDANT_RIME")
+	
+    if damage > 0 and chance and not target:hasStatusEffect(xi.effect.WEIGHT) then
         if not target:hasStatusEffect(xi.effect.WEIGHT) then
             if tp - 1000 > math.random() * 150 then
                 target:addStatusEffect(xi.effect.WEIGHT, 50, 0, 60)
             end
         end
+
+       xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
     end
+
 
     return tpHits, extraHits, criticalHit, damage
 end

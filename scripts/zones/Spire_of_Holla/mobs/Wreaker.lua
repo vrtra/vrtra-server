@@ -30,5 +30,7 @@ entity.onMobFight = function(mob, target)
        mob:setMod(xi.mod.STORETP, 250)
     end
 end
-
+entity.onMobDeath = function(mob, player, isKiller)
+	player:setCharVar("holla_win", 1)
+end
 return entity

@@ -28,6 +28,7 @@ mission.reward =
     item  = xi.items.WINDURSTIAN_FLAG,
     rank  = 10,
     title = xi.title.VESTAL_CHAMBERLAIN,
+    keyItem = xi.ki.RHAPSODY_IN_WHITE,
 }
 
 local handleAcceptMission = function(player, csid, option, npc)

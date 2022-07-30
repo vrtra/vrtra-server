@@ -135,12 +135,31 @@ xi.player.charCreate = function(player)
     if player:getGil() < xi.settings.main.START_GIL then
        player:setGil(xi.settings.main.START_GIL)
     end
-
+	
+    if ADVANCED_JOB_LEVEL == 0 then
+       player:unlockJob(7)
+       player:unlockJob(8)
+       player:unlockJob(9)
+       player:unlockJob(10)
+       player:unlockJob(11)
+       player:unlockJob(12)
+       player:unlockJob(13)
+       player:unlockJob(14)
+       player:unlockJob(15)
+       player:unlockJob(16)
+       player:unlockJob(17)
+       player:unlockJob(19)
+       player:unlockJob(20)
+    end
+	
+	
     player:addItem(536) -- adventurer coupon
     player:addTitle(xi.title.NEW_ADVENTURER)
+	player:addLinkpearl("Vrtra", true) -- server LS
     player:setCharVar("HQuest[moghouseExpo]notSeen", 1) -- needs Moghouse intro
     player:setCharVar("spokeKindlix", 1) -- Kindlix introduction
     player:setCharVar("spokePyropox", 1) -- Pyropox introduction
+    player:setCharVar("TransferNeeded", 1) -- needs transfer from the Overseer in !vrtra
     player:setCharVar("TutorialProgress", 1) -- Has not started tutorial
     player:setCharVar("EinherjarIntro", 1) -- Has not seen Einherjar intro
     player:setNewPlayer(true) -- apply new player flag
@@ -149,7 +168,7 @@ end
 -- called by core after a player logs into the server or zones
 xi.player.onGameIn = function(player, firstLogin, zoning)
     if not zoning then
-        -- things checked ONLY during logon go here
+        player:PrintToArea(string.format("%s has logged in!", player:getName()),21);
         if firstLogin then
             xi.player.charCreate(player)
         end
@@ -215,6 +234,134 @@ xi.player.onGameIn = function(player, firstLogin, zoning)
         player:addHP(50000)
         player:setMP(50000)
     end
+	-- test mode
+    if player:getVar("TestMode") == 1 then
+        player:addStatusEffect(xi.effect.MAX_HP_BOOST,1000,0,0);
+        player:addStatusEffect(xi.effect.MAX_MP_BOOST,1000,0,0);
+        player:addStatusEffect(xi.effect.REGAIN,150,1,0);
+        player:addStatusEffect(xi.effect.REFRESH,250,0,0);
+        player:addStatusEffect(xi.effect.REGEN,250,0,0);
+		player:addStatusEffect(xi.effect.HASTE,250,0,0);
+		player:addStatusEffect(xi.effect.FEALTY,1,0,0);
+        player:addStatusEffect(xi.effect.AQUAVEIL,75,0,0);
+        player:addStatusEffect(xi.effect.NEGATE_PETRIFY,1,0,0);
+        player:addStatusEffect(xi.effect.NEGATE_TERROR,1,0,0);
+        player:addStatusEffect(xi.effect.NEGATE_AMNESIA,1,0,0);
+        player:addStatusEffect(xi.effect.NEGATE_DOOM,1,0,0);
+        player:addStatusEffect(xi.effect.NEGATE_POISON,1,0,0);
+        player:addHP(50000)
+        player:setMP(50000)
+    end
+
+    -- !hide
+    if player:getVar("GMHidden") == 1 then
+        player:setGMHidden(true)
+    end
+--------------------------------
+-- SALVAGE
+--------------------------------
+    -- locking gear if a player crashes
+    if not zoning and player:getZoneID() == 74 
+	and player:getVar("ENCUMBRANCE") == 1
+	and player:getVar("OBLIVISCENCE") == 1
+	and player:getVar("OMERTA") == 1
+	and player:getVar("IMPAIRMENT") == 1
+	and player:getVar("DEBILITATION") == 1 
+    then 
+        player:addStatusEffectEx(xi.effect.ENCUMBRANCE_I, xi.effect.ENCUMBRANCE_I, 0xFFFF, 0, 0)
+        player:addStatusEffectEx(xi.effect.OBLIVISCENCE, xi.effect.OBLIVISCENCE, 0, 0, 0)	
+        player:addStatusEffectEx(xi.effect.OMERTA, xi.effect.OMERTA, 0, 0, 0)
+        player:addStatusEffectEx(xi.effect.IMPAIRMENT, xi.effect.IMPAIRMENT, 0, 0, 0)
+        player:addStatusEffectEx(xi.effect.DEBILITATION, xi.effect.DEBILITATION, 0x1FF, 0, 0)	
+	end
+	
+	-- Adding cells back if player crashes and had used cells prior
+	-- STATS
+	if player:getVar("AGI") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5379)
+	   player:PrintToPlayer("AGI CELL ADDED")
+    end	   
+	if player:getVar("VIT") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5378)
+	   player:PrintToPlayer("VIT CELL ADDED")
+	end
+	if player:getVar("STR") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5376)
+	   player:PrintToPlayer("STR CELL ADDED")
+	end
+	if player:getVar("MND") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5381)
+	   player:PrintToPlayer("MND CELL ADDED")	
+	end
+	if player:getVar("INT") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5380)
+	   player:PrintToPlayer("INT CELL ADDED")	
+	end
+	if player:getVar("DEX") == 1 and not zoning and player:getZoneID() == 74 then 
+	   player:addItem(5377)
+	   player:PrintToPlayer("DEX CELL ADDED")
+	end
+	if player:getVar("CHR") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5382)
+	   player:PrintToPlayer("CHR CELL ADDED")
+	end
+	if player:getVar("MP") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5384)
+	   player:PrintToPlayer("MP CELL ADDED")
+	end
+	if player:getVar("HP") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5383)
+	   player:PrintToPlayer("HP CELL ADDED")	   	   
+	end
+    -- ARMOR	   
+	if player:getVar("BODY") == 1 and not zoning and player:getZoneID() == 74 then 
+	   player:addItem(5367)
+	   player:PrintToPlayer("BODY CELL ADDED")
+	end
+	if player:getVar("HANDS") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5368)
+       player:PrintToPlayer("HANDS CELL ADDED")
+	end
+	if player:getVar("RANGED/AMMO") == 1 and not zoning and player:getZoneID() == 74 then 
+	   player:addItem(5371)
+	   player:PrintToPlayer("RANGED/AMMO CELL ADDED")
+	end
+	if player:getVar("ACCESSORIES") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5372)
+	   player:PrintToPlayer("ACCESSifIES CELL ADDED")
+	end   
+	if player:getVar("LEGS/FEET") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5369)
+	   player:PrintToPlayer("LEGS/FEET CELL ADDED")	  
+	end   
+	if player:getVar("HEAD/NECK") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5366)
+	   player:PrintToPlayer("HEAD/NECK CELL ADDED")
+	end
+	if player:getVar("WEAPONS") == 1 and not zoning and player:getZoneID() == 74 then 
+	   player:addItem(5365)
+	   player:PrintToPlayer("WEAPONS CELL ADDED")
+	end
+	if player:getVar("BACK/WAIST") == 1 and not zoning and player:getZoneID() == 74 then 
+	   player:addItem(5370)
+	   player:PrintToPlayer("BACK/WAIST CELL ADDED")
+	end   
+	-- JA/HP/MP/SJ ETC
+	if player:getVar("SJ") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5373)
+	   player:PrintToPlayer("SUBJOB CELL ADDED")
+	end
+	if player:getVar("MAGIC") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5375)
+	   player:PrintToPlayer("MAGIC CELL ADDED")
+	end
+	if player:getVar("JA") == 1 and not zoning and player:getZoneID() == 74 then
+	   player:addItem(5374)
+	   player:PrintToPlayer("JOB ABILITY CELL ADDED")
+	end
+	
+    -- remember time player zoned in (e.g., to support zone-in delays)
+    player:setLocalVar("ZoneInTime", os.time())
 
     -- !immortal
     if player:getCharVar("Immortal") == 1 then
@@ -239,7 +386,7 @@ end
 xi.player.onPlayerDeath = function(player)
 end
 
-xi.player.onPlayerLevelUp = function(player)
+function onPlayerLevelUp(player)
 end
 
 xi.player.onPlayerLevelDown = function(player)

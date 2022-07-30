@@ -27,18 +27,23 @@ weaponskill_object.onUseWeaponSkill = function(player, target, wsID, tp, primary
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
     params.acc100 = 0.0 params.acc200 = 0.0 params.acc300 = 0.0
-    params.atk100 = 1; params.atk200 = 1; params.atk300 = 1
+    params.atk100 = 1; params.atk200 = 1; params.atk300 = 1;
 
     if xi.settings.main.USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.ftp100 = 2.5 params.ftp200 = 4 params.ftp300 = 7
         params.mnd_wsc = 0.7
     end
 
-    -- Apply aftermath
-    xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
-
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
     player:addMP(damage)
+
+    -- Apply aftermath
+ 	local wsPoints = player:getVar("MYSTIC_BOON")
+    if damage > 0 then
+       xi.aftermath.addStatusEffect(player, tp, xi.slot.MAIN, xi.aftermath.type.MYTHIC)
+
+	end
+
 
     return tpHits, extraHits, criticalHit, damage
 end

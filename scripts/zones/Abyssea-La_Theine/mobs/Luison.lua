@@ -1,12 +1,19 @@
 -----------------------------------
 -- Area: Abyssea - La Theine
---  Mob: Luison
+--  MOB: Luison
 -----------------------------------
-mixins = { require("scripts/mixins/families/gnole") }
+local ID = require("scripts/zones/Abyssea-La_Theine/IDs")
+require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 local entity = {}
+mixins = { require("scripts/mixins/families/gnole") }
 
-entity.onMobDeath = function(mob, player, isKiller)
+
+entity.onMobDeath = function(mob,player)	
+		local cruor = math.random(75,125)
+
+		player:addCurrency("Cruor",cruor)
+	    player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)	
 end
-
 return entity

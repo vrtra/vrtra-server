@@ -13,19 +13,19 @@ require("scripts/globals/npc_util")
 local entity = {}
 
 entity.onTrade = function(player, npc, trade)
-    local lampCost = 60000 -- base cost without RHAPSODY_IN_AZURE key item
+    local lampCost = 500000 -- base cost without RHAPSODY_IN_AZURE key item
 
     if player:hasKeyItem(xi.ki.RHAPSODY_IN_AZURE) then
-        lampCost = 1000
+        lampCost = 1000000
     end
 
-    if npcUtil.tradeHasExactly(trade, {{"gil", lampCost}}) and player:getCharVar("EinherjarIntro") ~= 1 then
-        if npcUtil.giveItem(player, xi.items.SMOLDERING_LAMP) then
-            player:tradeComplete()
-            player:startEvent(25)
-        else
-            player:messageSpecial( ID.text.ITEM_CANNOT_BE_OBTAINED, xi.items.SMOLDERING_LAMP)
-        end
+    if npcUtil.tradeHasExactly(trade, {{"gil", lampCost}}) then
+	    player:setCharVar("Odin_Ready", 1)
+        player:tradeComplete()
+        player:startEvent(25)
+		player:PrintToPlayer(string.format("Kilusha: Head to Hazhalm Training Grounds to face your maker!"), 21)
+    else
+        player:PrintToPlayer(string.format("Kilusha: Entry Item can not be obtained."), 21)
     end
 end
 

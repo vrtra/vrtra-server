@@ -59,8 +59,20 @@ entity.onMobWeaponSkillPrepare = function(mob, target)
     return cueMove
 end
 
-entity.onMobDeath = function(mob, player, isKiller)
-    player:addTitle(xi.title.BRIAREUS_FELLER)
-end
+entity.onMobDeath = function(mob,player)
+	
+	local cruor = math.random(1300,1700)
 
+    if player:hasKeyItem(xi.ki.BLOOD_SMEARED_GIGAS_HELM) == false then
+        player:addKeyItem(xi.ki.BLOOD_SMEARED_GIGAS_HELM)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, xi.ki.BLOOD_SMEARED_GIGAS_HELM)
+		player:addTitle(xi.title.BRIAREUS_FELLER)
+		player:addCurrency("Cruor",cruor)
+		player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)
+	else
+		player:addTitle(xi.title.BRIAREUS_FELLER)
+		player:addCurrency("Cruor",cruor)
+	   player:messageSpecial(ID.text.CRUOR_OBTAINED, cruor)	
+	end
+end
 return entity

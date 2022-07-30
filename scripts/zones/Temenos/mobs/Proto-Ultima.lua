@@ -40,6 +40,7 @@ entity.onMobFight = function(mob, target)
 end
 
 entity.onMobDeath = function(mob, player, isKiller, noKiller)
+    player:setCharVar("sea_augment",1)
     if player then
         player:addTitle(xi.title.TEMENOS_LIBERATOR)
     end

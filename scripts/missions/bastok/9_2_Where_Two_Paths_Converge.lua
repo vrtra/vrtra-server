@@ -15,6 +15,7 @@ require('scripts/globals/npc_util')
 require('scripts/globals/settings')
 require('scripts/globals/interaction/mission')
 require('scripts/globals/zone')
+require("scripts/globals/keyitems")
 -----------------------------------
 local bastokMarketsID = require('scripts/zones/Bastok_Markets/IDs')
 local bastokMinesID   = require('scripts/zones/Bastok_Mines/IDs')
@@ -29,6 +30,7 @@ mission.reward =
     rank = 10,
     gil = 100000,
     title = xi.title.HERO_AMONG_HEROES,
+    keyItem = xi.ki.RHAPSODY_IN_WHITE,
 }
 
 local handleAcceptMission = function(player, csid, option, npc)
