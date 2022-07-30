@@ -911,7 +911,7 @@ xi.spells.damage.useDamageSpell = function(caster, target, spell)
     local nukeAbsorbOrNullify         = xi.spells.damage.calculateNukeAbsorbOrNullify(caster, target, spell, spellElement)
 
     -- Debug
-    -- printf("=====================")
+    -- printf("")
     -- printf("spellDamage = %s", spellDamage)
     -- printf("======Multipliers====")
     -- printf("MTDR = %s", multipleTargetReduction)
@@ -930,7 +930,7 @@ xi.spells.damage.useDamageSpell = function(caster, target, spell)
     -- printf("ninFutaeBonus = %s", ninFutaeBonus)
     -- printf("undeadDivinePenalty = %s", undeadDivinePenalty)
     -- printf("nukeAbsorbOrNullify = %s", nukeAbsorbOrNullify)
-    -- printf("=====================")
+    -- printf("")
 
     -- Calculate finalDamage. It MUST be floored after EACH multiplication.
     finalDamage = math.floor(spellDamage * multipleTargetReduction)

@@ -18,8 +18,8 @@ entity.onTrade = function(player, npc, trade)
 end
 
 entity.onTrigger = function(player, npc)
---    player:delQuest(xi.quest.log_id.WINDURST, xi.quest.id.windurst.CATCH_IT_IF_YOU_CAN) -- ======== FOR TESTING ONLY ==========-----
--- ======== FOR TESTING ONLY ==========-----
+--    player:delQuest(xi.quest.log_id.WINDURST, xi.quest.id.windurst.CATCH_IT_IF_YOU_CAN) -- = FOR TESTING ONLY ===-----
+-- = FOR TESTING ONLY ===-----
 --    if (player:getCharVar("QuestCatchItIfYouCan_var") == 0 and player:hasStatusEffect(xi.effect.MUTE) == false and player:hasStatusEffect(xi.effect.BANE) == false and player:hasStatusEffect(xi.effect.PLAGUE) == false) then
 --        rand = math.random(1, 3)
 --        if (rand == 1) then
@@ -30,7 +30,7 @@ entity.onTrigger = function(player, npc)
 --            player:addStatusEffect(xi.effect.PLAGUE, 0, 0, 100)
 --        end
 --    end
--- ======== FOR TESTING ONLY ==========-----
+-- = FOR TESTING ONLY ===-----
 
     local catch = player:getQuestStatus(xi.quest.log_id.WINDURST, xi.quest.id.windurst.CATCH_IT_IF_YOU_CAN)
     local wonderWands = player:getQuestStatus(xi.quest.log_id.WINDURST, xi.quest.id.windurst.WONDER_WANDS)
