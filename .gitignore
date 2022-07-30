@@ -263,3 +263,9 @@ topaz_connect_64.exe
 topaz_game_64.exe
 topaz_game_64.exe
 topaz_search_64.exe
+settings/logging.lua
+settings/login.lua
+settings/main.lua
+settings/map.lua
+settings/network.lua
+settings/search.lua
